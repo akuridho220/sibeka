@@ -14,7 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('home', [
+        "title" => "Home",
+        "user" => "Konseli"
+    ]);
+});
+
+Route::get('/riwayat-konseli', function () {
     return view('riwayat-konseli', [
-        "title" => "Home"
+        "title" => "Riwayat",
+        "user" => "Konseli"
+    ]);
+});
+
+Route::get('/riwayat-konselor', function () {
+    return view('riwayat-konselor', [
+        "title" => "Riwayat",
+        "user" => "Konselor"
     ]);
 });

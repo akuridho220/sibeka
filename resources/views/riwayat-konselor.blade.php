@@ -8,11 +8,17 @@
                 </div>
                 <div class="flex flex-col w-full items-center">
                     <div class="flex flex-row py-2 mx-auto">
-                        <form action="" class="w-full grow flex flex-row">
-                            <p class="p-2">Filter :</p>
-                            <input type="date" name="" id="" class="px-2 rounded-lg border-2">
-                            <p class="p-2">sampai</p>
-                            <input type="date" name="" id="" class="px-2 rounded-lg border-2">
+                        <form action="" method="post" class="">
+                            <div class="w-full grow flex flex-row">
+                                <p class="p-2">Filter :</p>
+                                <input type="date" name="" id="" class="px-2 rounded-lg border-2">
+                                <p class="p-2">sampai</p>
+                                <input type="date" name="" id="" class="px-2 rounded-lg border-2">
+                            </div>
+                            <div class="w-full justify-between flex flex-row pt-4 mx-auto">
+                                <p class="p-2">Pencarian</p>
+                                <input type="text" class="px-2 rounded-lg border-2" placeholder="Masukkan Nama">
+                            </div>
                         </form>
                     </div>
                     <div class="w-full">
