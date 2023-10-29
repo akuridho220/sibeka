@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
         .font-family-karla { font-family: karla; }
         .bg-sidebar { background: #025A88; }
         .cta-btn { color: #3d68ff; }
@@ -17,9 +17,14 @@
         .w-sidebar {width: 248px}
         .w-content {width: calc(100vw - 244px)}
         .left-content{left: 244px}
+        .primary-color {color : #025A88;}
+        .secondary-color {color: #0997BC;}
+        .tertiary-color {color : #FFC436;}
+        .accept {color: #159600}
+        .danger {color: #E96C6C}
     </style>
 </head>
-<body class="font-family-karla flex">
+<body class="font-family-poppins flex">
     @include('partials.aside')
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         @include('partials.header')
