@@ -14,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
+    return view('landing-page', [
+        "title" => "Home",
+        "user" => "Konseli"
+    ]);
+});
+
+Route::get('/home-konseli', function () {
+    return view('konseli/home-konseli-1', [
         "title" => "Home",
         "user" => "Konseli"
     ]);
