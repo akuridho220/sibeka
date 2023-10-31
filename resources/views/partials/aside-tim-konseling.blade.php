@@ -20,14 +20,7 @@
                 <i data-feather="file-text" class="mr-4"></i>
             </div>
             {{-- <i class="fas fa-file-invoice mr-3"></i> --}}
-            Pendaftaran Konseling
-        </a>
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Riwayat" ? 'active-nav-link' : '' }} nav-item">
-            <div class="grow-0">
-                <i data-feather="archive" class="mr-4"></i>
-            </div>
-            {{-- <i class="fas fa-box-archive mr-3"></i> --}}
-            Riwayat Konseling
+            Daftar Pengajuan Konseling
         </a>
     </nav>
 </aside>

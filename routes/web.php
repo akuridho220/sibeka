@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,7 @@ Route::get('/riwayat-konselor', function () {
         "user" => "Konselor"
     ]);
 });
+
+
+
+Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');

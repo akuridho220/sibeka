@@ -41,9 +41,9 @@
                     </div>
                 </div>
                 <div class="flex flex-row grow justify-end text-white mx-auto px-8 items-center">
-                    <li class="list-none px-2"><a href="">Tentang Kami</a></li>
-                    <li class="list-none px-2"><a href="">Tahapan Pendaftaran</a></li>
-                    <li class="list-none px-2"><a href="">Jam Buka</a></li>
+                    <li class="list-none px-2 hover:font-semibold"><a href="">Tentang Kami</a></li>
+                    <li class="list-none px-2 hover:font-semibold"><a href="">Tahapan Pendaftaran</a></li>
+                    <li class="list-none px-2 hover:font-semibold"><a href="">Jam Buka</a></li>
                     <button class="bg-warning text-white rounded-lg py-2 px-4 ml-8">Login</button>
                 </div>
             </div>
@@ -109,9 +109,9 @@
         <!-- Content -->
         <div class="w-full h-screen bg-gray-300">
             <main class="w-5/6 h-screen bg-white mx-auto">
-                <div class="hero">
+                <section class="">
                     
-                </div>
+                </section>
             </main>
         </div>
         
