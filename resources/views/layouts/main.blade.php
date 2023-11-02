@@ -88,7 +88,7 @@
         }
     </style>
 </head>
-<body class="font-family-poppins flex">
+<body class="font-family-poppins flex flex-row">
     @if($user === "Konseli")
         @include('partials.aside')
     @elseif($user === "Konselor")
@@ -99,7 +99,7 @@
         @include('partials.aside-pimpinan')
     @endif
     
-    <div class="w-full flex flex-col h-screen overflow-y-hidden">
+    <div class="w-full flex flex-col pl-0 md:pl-64 min-h-screen overflow-y-hidden">
         @include('partials.header')
         @yield('content')
     </div>
@@ -133,6 +133,13 @@
             }
             };
         }
+    </script>
+    <script src="js/sidebar.js">
+        const hamburger = document.querySelector('#hamburgerMenu');
+
+        hamburger.addEventListener('click', function(){
+            hamburger.classList.toggle('hamburger-active');
+        });
     </script>
 </body>
 </html>

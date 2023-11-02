@@ -14,12 +14,76 @@ use App\Http\Controllers\UserController;
 |
 */
 
+// Route for All
 Route::get('/', function () {
     return view('landing-page', [
         "title" => "Home",
         "user" => "Konseli"
     ]);
 });
+
+
+// Route for Konseli
+Route::get('/konseli', function () {
+    return view('konseli/home-konseli-1', [
+        "title" => "Home",
+        "user" => "Konseli"
+    ]);
+});
+
+Route::get('/konseli/pendaftaran', function () {
+    return view('konseli/pendaftaran-konseli', [
+        "title" => "Pendaftaran",
+        "user" => "Konseli"
+    ]);
+});
+
+Route::get('/konseli/riwayat', function () {
+    return view('konseli/riwayat-konseli', [
+        "title" => "Riwayat",
+        "user" => "Konseli"
+    ]);
+});
+
+// Route for Konselor
+Route::get('/konselor', function () {
+    return view('konselor/home-konselor', [
+        "title" => "Home",
+        "user" => "Konselor"
+    ]);
+});
+
+Route::get('/konselor/laporan', function () {
+    return view('konselor/laporan', [
+        "title" => "Laporan",
+        "user" => "Konselor"
+    ]);
+});
+
+Route::get('/konselor/riwayat', function () {
+    return view('konselor/riwayat-konselor', [
+        "title" => "Riwayat",
+        "user" => "Konselor"
+    ]);
+});
+
+// Route for Team
+Route::get('/tim', function () {
+    return view('tim-konseling/home-tim-konseling', [
+        "title" => "Home",
+        "user" => "Tim Konseling"
+    ]);
+});
+
+Route::get('/tim', function () {
+    return view('tim-konseling/home-tim-konseling', [
+        "title" => "Home",
+        "user" => "Tim Konseling"
+    ]);
+});
+
+// Route for Pimpinan
+
 
 Route::get('/home-konseli', function () {
     return view('konseli/home-konseli-1', [

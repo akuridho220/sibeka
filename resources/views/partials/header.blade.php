@@ -1,6 +1,21 @@
-<header class="w-full items-center bg-white py-2 px-6 border-b-2 hidden sm:flex">
-    <div class="w-1/2"></div>
-    <div  class="relative w-1/2 flex flex-row justify-end">
+<header class="w-full items-center bg-white h-16 px-6 border-b-2 flex">
+    <div class="w-1/2">
+        <div class="flex flex-row items-center h-16 w-full px-4 md:hidden">
+            <!-- mobile hamburger -->
+            <div class="md:hidden flex items-center mr-4">
+                <button id="hamburgerMenu" type="button" class=" primary-color hover:text-blue-500 hover:border-white focus:outline-none navbar-burger">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <div class="p-2">
+                <img src="img/logo.png" alt="stis" width="40px" class="w-10">
+            </div>
+            <div class="p-2">
+                <p class="text-lg primary-color font-bold">STIS Konseling</p>
+            </div>
+        </div>
+    </div>
+    <div class="relative w-1/2 flex flex-row justify-end">
         <div class="flex py-2 px-4">
             <p>Konseli</p>
         </div>
