@@ -18,7 +18,7 @@
                         <p>Topik masalah akademik</p>
                     </div>
                 </div>
-                <div class="flex flex-col w-full flex-wrap mt-6 mb-6 border-b-2">
+                <div class="flex flex-col w-full flex-wrap mt-6">
                     <div class="w-full mt-4">
                         <div class="p-4 bg-white">
                             {!! $genderChart->container() !!}
@@ -35,13 +35,6 @@
                         </div>
                     </div>
                 </div> 
-                <div class="w-full mb-8">
-                    <p class="mb-4 font-semibold mr-auto">Unduh Data Konseling</p>
-                    <form action="" class="flex flex-row items-center">
-                        <button class="bg-accept font-semibold py-2 px-4 rounded-lg mr-8">Unduh</button>
-                        <p class="text-sm">Format unduhan adalah xlsx</p>
-                    </form>
-                </div>
             </div>
         </main>
     </div>
