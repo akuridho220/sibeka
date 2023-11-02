@@ -31,14 +31,14 @@ Route::get('/konseli', function () {
     ]);
 });
 
-Route::get('/konseli/pendaftaran', function () {
+Route::get('/konseli-pendaftaran', function () {
     return view('konseli/pendaftaran-konseli', [
         "title" => "Pendaftaran",
         "user" => "Konseli"
     ]);
 });
 
-Route::get('/konseli/riwayat', function () {
+Route::get('/konseli-riwayat', function () {
     return view('konseli/riwayat-konseli', [
         "title" => "Riwayat",
         "user" => "Konseli"
@@ -53,14 +53,14 @@ Route::get('/konselor', function () {
     ]);
 });
 
-Route::get('/konselor/laporan', function () {
+Route::get('/konselor-laporan', function () {
     return view('konselor/laporan', [
         "title" => "Laporan",
         "user" => "Konselor"
     ]);
 });
 
-Route::get('/konselor/riwayat', function () {
+Route::get('/konselor-riwayat', function () {
     return view('konselor/riwayat-konselor', [
         "title" => "Riwayat",
         "user" => "Konselor"
@@ -68,14 +68,9 @@ Route::get('/konselor/riwayat', function () {
 });
 
 // Route for Team
-Route::get('/tim', function () {
-    return view('tim-konseling/home-tim-konseling', [
-        "title" => "Home",
-        "user" => "Tim Konseling"
-    ]);
-});
+Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');
 
-Route::get('/tim', function () {
+Route::get('/tim-pengajuan', function () {
     return view('tim-konseling/home-tim-konseling', [
         "title" => "Home",
         "user" => "Tim Konseling"
@@ -83,29 +78,13 @@ Route::get('/tim', function () {
 });
 
 // Route for Pimpinan
-
-
-Route::get('/home-konseli', function () {
-    return view('konseli/home-konseli-1', [
+Route::get('/pimpinan', function () {
+    return view('pimpinan/home-pimpinan', [
         "title" => "Home",
-        "user" => "Konseli"
-    ]);
-});
-
-Route::get('/riwayat-konseli', function () {
-    return view('riwayat-konseli', [
-        "title" => "Riwayat",
-        "user" => "Konseli"
-    ]);
-});
-
-Route::get('/riwayat-konselor', function () {
-    return view('riwayat-konselor', [
-        "title" => "Riwayat",
-        "user" => "Konselor"
+        "user" => "Pimpinan"
     ]);
 });
 
 
 
-Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');
+

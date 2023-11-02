@@ -1,5 +1,5 @@
 <header class="w-full items-center bg-white h-16 px-6 border-b-2 flex">
-    <div class="w-1/2">
+    <div class="md:w-1/2 grow">
         <div class="flex flex-row items-center h-16 w-full px-4 md:hidden">
             <!-- mobile hamburger -->
             <div class="md:hidden flex items-center mr-4">
@@ -7,18 +7,13 @@
                     <i data-feather="menu"></i>
                 </button>
             </div>
-            <div class="p-2">
-                <img src="img/logo.png" alt="stis" width="40px" class="w-10">
-            </div>
-            <div class="p-2">
-                <p class="text-lg primary-color font-bold">STIS Konseling</p>
+            <div class="flex ml-2 md:mr-24">
+                <img src="img/logo.png" alt="stis" class="h-8 w-8 mr-3">
+                <span class="self-center text-xl font-semibold sm:text-2xl primary-color whitespace-nowrap">Sibeka</span>
             </div>
         </div>
     </div>
     <div class="relative w-1/2 flex flex-row justify-end">
-        <div class="flex py-2 px-4">
-            <p>Konseli</p>
-        </div>
         <div x-data="{ isOpen: false }">
             <button @click="isOpen = !isOpen" class="realtive flex items-center justify-center z-10 w-10 h-10">
                 <div class="grow-0">

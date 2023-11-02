@@ -14,14 +14,14 @@
         </div>
     </div>
     <nav class="text-white text-sm font-semibold pt-3">
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/tim" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="home" class="mr-4"></i>
             </div>
             {{-- <i class="fas fa-home mr-3"></i> --}}
             Beranda
         </a>
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/tim-pengajuan" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="file-text" class="mr-4"></i>
             </div>

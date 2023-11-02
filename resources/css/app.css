@@ -2,6 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-.hamburger-active{
-    
-}
+.font-family-karla { font-family: karla; }
+        .bg-sidebar { background: #025A88; }
+        .cta-btn { color: #3d68ff; }
+        .upgrade-btn { background: #1947ee; }
+        .upgrade-btn:hover { background: #0038fd; }
+        .active-nav-link { background: #024f78; }
+        .nav-item:hover { background: #024f78; }
+        .account-link:hover { background: #3d68ff; }
+        .w-sidebar {width: 248px}
+        .w-content {width: calc(100vw - 244px)}
+        .left-content{left: 244px}
+        .primary-color {color : #025A88;}
+        .secondary-color {color: #0997BC;}
+        .warning {color : #FFC436;}
+        .accept {color: #159600;}
+        .danger {color: #E96C6C;}
+        .bg-accept {background: #159600;}
+        .bg-danger {background: #e96c6c;}
+        .bg-warning {background: #FFC436;}
+
+        /* Tab content - closed */
+        .tab-content {
+            max-height: 0;
+            -webkit-transition: max-height .35s;
+            -o-transition: max-height .35s;
+            transition: max-height .35s;
+        }
+        /* :checked - resize to full height */
+        .tab input:checked ~ .tab-content {
+            max-height: 100vh;
+        }
+
+        /* Label formatting when open */
+        .tab input:checked + label{
+            /*@apply text-xl p-5 border-l-2 border-indigo-500 bg-gray-100 text-indigo*/
+            padding: 1.25rem; /*.p-5*/
+            background-color: #f8fafc; /*.bg-gray-100 */
+            color: #0997BC; /*.text-indigo*/
+        }
+        /* Icon */
+        .tab label::after {
+            float:right;
+            right: 0;
+            top: 0;
+            display: block;
+            width: 1.5em;
+            height: 1.5em;
+            line-height: 1.5;
+            font-size: 1.25rem;
+            text-align: center;
+            -webkit-transition: all .35s;
+            -o-transition: all .35s;
+            transition: all .35s;
+        }
+        /* Icon formatting - closed */
+        .tab input[type=checkbox] + label::after {
+            content: "+";
+            font-weight:bold; /*.font-bold*/
+            border-width: 1px; /*.border*/
+            border-radius: 9999px; /*.rounded-full */
+            border-color: #b8c2cc; /*.border-grey*/
+        }
+        .tab input[type=radio] + label::after {
+            content: "\25BE";
+            font-weight:bold; /*.font-bold*/
+            border-width: 1px; /*.border*/
+            border-radius: 9999px; /*.rounded-full */
+            border-color: #b8c2cc; /*.border-grey*/
+        }
+         /* Icon formatting - open */
+        .tab input[type=checkbox]:checked + label::after {
+            transform: rotate(315deg);
+            background-color: #025A88; /*.bg-indigo*/
+            color: #f8fafc; /*.text-grey-lightest*/
+            }
+        .tab input[type=radio]:checked + label::after {
+            transform: rotateX(180deg);
+            background-color: #025A88; /*.bg-indigo*/
+            color: #f8fafc; /*.text-grey-lightest*/
+        }

@@ -14,7 +14,7 @@
         </div>
     </div>
     <nav class="text-white text-sm font-semibold pt-3">
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/pimpinan" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="home" class="mr-4"></i>
             </div>

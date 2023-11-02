@@ -1,4 +1,4 @@
-<aside id="sidebar" class="w-1/3 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
+<aside id="sidebar" class="w-1/2 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
     <div class="flex flex-row items-center h-16 w-full px-4">
         <!-- mobile hamburger -->
         <div class="flex md:hidden items-center ml-2">
@@ -14,14 +14,14 @@
         </div>
     </div>
     <nav class="text-white text-sm font-semibold pt-3">
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/konselor" class="flex items-center py-4 pl-6 {{ $title === "Home" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="home" class="mr-4"></i>
             </div>
             {{-- <i class="fas fa-home mr-3"></i> --}}
             Beranda
         </a>
-        <a href="" class="flex items-center py-4 pl-6 {{ $title === "Riwayat" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/konselor-riwayat" class="flex items-center py-4 pl-6 {{ $title === "Riwayat" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="archive" class="mr-4"></i>
             </div>

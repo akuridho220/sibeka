@@ -1,4 +1,4 @@
-<aside id="sidebar" class="w-1/3 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
+<aside id="sidebar" class="w-1/2 sm:w-1/3 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
     <div class="flex flex-row items-center h-16 w-full px-4">
         <!-- mobile hamburger -->
         <div class="flex md:hidden items-center ml-2">
@@ -6,11 +6,9 @@
                 <i data-feather="x"></i>
             </button>
         </div>
-        <div class="p-2 hidden md:flex">
-            <img src="img/logo.png" alt="stis" width="40px" class="w-10">
-        </div>
-        <div class="p-2">
-            <p class="text-lg text-white font-bold">STIS Konseling</p>
+        <div class="flex ml-2 md:mr-24">
+            <img src="img/logo.png" alt="stis" class="h-8 w-8 mr-3">
+            <span class="self-center text-xl font-semibold sm:text-2xl text-white whitespace-nowrap">Sibeka</span>
         </div>
     </div>
     <nav class="text-white text-sm font-semibold">
@@ -20,13 +18,13 @@
             </div>
             Beranda
         </a>
-        <a href="/konseli/pendaftaran" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/konseli-pendaftaran" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="file-text" class="mr-4"></i>
             </div>
             Pendaftaran Konseling
         </a>
-        <a href="/konseli/riwayat" class="flex items-center py-4 pl-6 {{ $title === "Riwayat" ? 'active-nav-link' : '' }} nav-item">
+        <a href="/konseli-riwayat" class="flex items-center py-4 pl-6 {{ $title === "Riwayat" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="archive" class="mr-4"></i>
             </div>
