@@ -31,11 +31,11 @@
                     </div>                    
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">Tanggal dan Waktu 1</label>
-                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="">
+                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="firstDay">
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">Tanggal dan Waktu 2</label>
-                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="">
+                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="secondDay">
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">Pilih Jenis Konselor</label>
@@ -54,4 +54,19 @@
             </div>
         </main>
     </div>
+    <script>
+        const today = new Date()
+        const tomorrow = new Date(today)
+        tomorrow.setDate(tomorrow.getDate() + 1);
+
+        let year = tomorrow.toLocaleString("default", { year: "numeric" });
+        let month = tomorrow.toLocaleString("default", { month: "2-digit" });
+        let day = tomorrow.toLocaleString("default", { day: "2-digit" });
+
+        // Generate yyyy-mm-dd date string
+        let formattedDate = year + "-" + month + "-" + day;
+
+        document.getElementById("firstDay").setAttribute("min", formattedDate);
+        document.getElementById("secondDay").setAttribute("min", formattedDate)
+    </script>
 @endsection

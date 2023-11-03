@@ -22,7 +22,7 @@
                     </div> 
                 </div>
                 <button class="rounded-lg p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">
-                    <a href="/konselor/laporan" class="font-semibold text-white">Isi Laporan Konseling</a>
+                    <a href="/konselor-laporan" class="font-semibold text-white">Isi Laporan Konseling</a>
                 </button>
             <p class="text-3xl font-bold danger pt-6 pb-2">Laporan yang Belum Terisi</p>
             

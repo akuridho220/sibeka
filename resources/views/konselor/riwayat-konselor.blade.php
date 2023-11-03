@@ -33,7 +33,7 @@
                                             <p class="block rounded-full bg-danger text-white px-4 py-1">Ruang Konseling 1</p>
                                         </div>
                                         <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Konselor</p>
+                                            <p class="w-1/4">Konseli</p>
                                             <p class="block rounded-full bg-accept text-white px-4 py-1">Firdaus, MBA</p>
                                         </div>
                                         <div class="flex flex-row p-2 items-center">
