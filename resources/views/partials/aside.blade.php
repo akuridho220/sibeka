@@ -6,9 +6,11 @@
                 <i data-feather="x"></i>
             </button>
         </div>
-        <div class="flex ml-2 md:mr-24">
-            <img src="img/logo.png" alt="stis" class="h-8 w-8 mr-3">
-            <span class="self-center text-xl font-semibold sm:text-2xl text-white whitespace-nowrap">Sibeka</span>
+        <div class="p-2 hidden md:flex">
+            <img src="img/logo.png" alt="stis" width="40px" class="w-10">
+        </div>
+        <div class="p-2">
+            <p class="text-lg text-white font-bold">Sibeka</p>
         </div>
     </div>
     <nav class="text-white text-sm font-semibold">

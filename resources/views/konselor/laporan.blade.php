@@ -2,7 +2,7 @@
 @section('content')
     <div class="w-full overflow-x-hidden flex flex-col">
         <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
-            <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
+            <div class="flex flex-col items-center bg-white lg:w-2/3 w-full rounded-lg border drop-shadow-lg overflow-auto">
                 <div>
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Laporan Konseling</p>
                 </div>

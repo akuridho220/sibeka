@@ -2,7 +2,7 @@
 @section('content')
     <div class="w-full overflow-x-hidden flex flex-col">
         <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
-            <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
+            <div class="flex flex-col items-center bg-white lg:w-2/3 w-full rounded-lg border drop-shadow-lg overflow-auto">
                 <div class="flex flex-col justify-center py-4 px-2">
                     <h1 class="font-bold ">Riwayat Konseling</h1>
                 </div>

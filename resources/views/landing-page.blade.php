@@ -37,7 +37,7 @@
                         <img src="img/logo.png" alt="stis" width="36px">
                     </div>
                     <div class="p-2">
-                        <p class="text-xs font-bold text-white w-3/5">Sibeka</p>
+                        <p class="text-sm font-bold text-white w-3/5">Sibeka</p>
                     </div>
                 </div>
                 <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
