@@ -6,7 +6,6 @@
     @vite('resources/css/app.css')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
-        
     </style>
 </head>
 <body class="font-family-poppins flex flex-row">

@@ -1,4 +1,4 @@
-<aside id="sidebar" class="w-1/2 sm:w-1/3 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
+<aside id="sidebar" class="w-2/3 sm:w-1/3 md:w-64 fixed md:top-0 md:left-0 -left-full bg-sidebar h-screen md:block shadow-xl z-30">
     <div class="flex flex-row items-center h-16 w-full px-4">
         <!-- mobile hamburger -->
         <div class="flex md:hidden items-center ml-2">

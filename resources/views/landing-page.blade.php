@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+    </style>
 </head>
-<body class="font-family-karla flex">
+<body class="font-family-poppins flex">
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
         <header class="w-full bg-sidebar hidden sm:flex">
@@ -25,13 +28,7 @@
                     <button class="bg-warning text-white rounded-lg py-2 px-4 ml-8">Login</button>
                 </div>
             </div>
-        </header>
-
-
-
-
-
-
+        </header>   
         <!-- Mobile Header & Nav -->
         <header x-data="{ isOpen: false }" class="w-full bg-sidebar px-6 sm:hidden">
             <div class="flex items-center justify-between">
@@ -66,7 +63,7 @@
 
         <!-- Content -->
         <div class="w-full h-screen bg-gray-300 overflow-y-auto">
-            <main class="w-5/6 h-auto bg-white mx-auto">
+            <main class="w-full ms:w-5/6 h-auto bg-white mx-auto">
                 <section id="aboutus" class="h-3/4 secondary-color">
                     <div class="relative">
                         <div class="bg-[url('/public/img/landing-page.png')] bg-cover bg-center relative h-screen">
@@ -80,8 +77,6 @@
                         </div>
                     </div>
                 </section>
-
-
                 <section id="steps">
                     <div>
                         <p class="text-center text-2xl mt-8 font-bold">Tahapan Konseling</p>

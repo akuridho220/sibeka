@@ -1,5 +1,5 @@
 <header class="w-full items-center bg-white h-16 px-6 border-b-2 flex">
-    <div class="md:w-1/2 grow">
+    <div class="md:w-1/3 grow">
         <div class="flex flex-row items-center h-16 w-full px-4 md:hidden">
             <!-- mobile hamburger -->
             <div class="md:hidden flex items-center mr-4">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="relative w-1/2 flex flex-row justify-end">
+    <div class="relative w-1/3 flex flex-row justify-end">
         <div x-data="{ isOpen: false }">
             <button @click="isOpen = !isOpen" class="realtive flex items-center justify-center z-10 w-10 h-10">
                 <div class="grow-0">

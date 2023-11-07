@@ -1,13 +1,12 @@
 @extends('layouts.main')
 @section('content')
     <div class="w-full overflow-x-hidden flex flex-col">
-        <main class="w-full flex flex-grow justify-center p-6 min-h-screen">
-            <!-- <div class="flex flex-col justify-center items-center border-solid border-2 border-black"> -->
-            <div class="flex flex-col items-center bg-white w-2/3 rounded-lg border drop-shadow-lg overflow-auto">
+        <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
+            <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
                 <div>
-                    <p class="font-bold w-full mb-1 p-5 text-xl">Formulir Laporan Konseling</p>
+                    <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Laporan Konseling</p>
                 </div>
-                <form class="w-4/5 px-10" action="" method="post">
+                <form class="w-full lg:w-4/5 px-4 md:px-10" action="" method="post">
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konselor</label>
                         <input type="text" id="nama_konselor" class="w-full bg-gray-300 h-10 p-2" value="Firdaus" readonly>
@@ -36,7 +35,7 @@
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Klasifikasi Permasalahan Utama</label>
                         <select id="klasifikasi" class="bg-gray-200 h-10 p-2 w-full">
-                            <option selected>Pilih permasalahan utama</option>
+                            <option disabled selected>Pilih permasalahan utama</option>
                             <option value="Akademik">Akademik</option>
                             <option value="Keluarga">Keluarga</option>
                             <option value="Pertemanan">Pertemanan</option>
@@ -54,7 +53,7 @@
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Tindak Lanjut</label>
                         <select id="tindak_lanjut" class="bg-gray-200 h-10 p-2 w-full">
-                            <option selected>Pilih opsi</option>
+                            <option disabled selected>Pilih opsi</option>
                             <option value="tidak-ada">Selesai</option>
                             <option value="lanjutan">Konsultasi Lanjutan</option>
                         </select>
@@ -69,9 +68,12 @@
                         <div class="p-2">
                             <label for="" class="block mb-1 font-bold">Waktu Pertemuan Lanjutan</label>
                             <select id="tindak_lanjut" class="bg-gray-200 h-10 p-2 w-full">
-                                <option selected>Pilih waktu</option>
-                                <option value="9">09.00-11.00</option>
-                                <option value="13">13.00-15.00</option>
+                                <option disabled selected>Pilih waktu</option>
+                                <option value="9">09.00-10.00</option>
+                                <option value="10">10.00-11.00</option>
+                                <option value="11">11.00-12.00</option>
+                                <option value="13">13.00-14.00</option>
+                                <option value="14">14.00-15.00</option>
                             </select>
                         </div>
                     </div>
