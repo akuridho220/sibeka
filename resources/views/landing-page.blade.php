@@ -4,28 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap');
-        .font-family-karla { font-family: poppins; }
-        .bg-sidebar { background: #025A88; }
-        .cta-btn { color: #3d68ff; }
-        .upgrade-btn { background: #1947ee; }
-        .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #024f78; }
-        .nav-item:hover { background: #024f78; }
-        .account-link:hover { background: #3d68ff; }
-        .w-sidebar {width: 248px}
-        .w-content {width: calc(100vw - 244px)}
-        .left-content{left: 244px}
-        .primary-color {color : #025A88;}
-        .secondary-color {color: #0997BC;}
-        .warning {color : #FFC436;}
-        .accept {color: #159600;}
-        .danger {color: #E96C6C;}
-        .bg-accept {background: #159600;}
-        .bg-danger {background: #e96c6c;}
-        .bg-warning {background: #FFC436;}
-    </style>
 </head>
 <body class="font-family-karla flex">
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
@@ -55,9 +33,16 @@
 
 
         <!-- Mobile Header & Nav -->
-        <header x-data="{ isOpen: false }" class="w-full bg-sidebar py-5 px-6 sm:hidden">
+        <header x-data="{ isOpen: false }" class="w-full bg-sidebar px-6 sm:hidden">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
+                <div class="flex flex-row items-center w-fit py-2">
+                    <div class="p-2">
+                        <img src="img/logo.png" alt="stis" width="36px">
+                    </div>
+                    <div class="p-2">
+                        <p class="text-xs font-bold text-white w-3/5">Sibeka</p>
+                    </div>
+                </div>
                 <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none">
                     <i x-show="!isOpen" class="fas fa-bars"></i>
                     <i x-show="isOpen" class="fas fa-times"></i>
@@ -66,25 +51,16 @@
 
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
-                <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
-                    <i class="fas fa-tachometer-alt mr-3"></i>
-                    Dashboard
+                <a href="" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
+                    Tentang Kami
                 </a>
                 <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-sticky-note mr-3"></i>
-                    Blank Page
+                    Tahapan Pendaftaran
                 </a>
-                <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-table mr-3"></i>
-                    Tables
+                <a href="" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
+                    Jam Buka
                 </a>
-                <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
-                    <i class="fas fa-align-left mr-3"></i>
-                    Forms
-                </a>
-                <button class="w-full bg-white cta-btn font-semibold py-2 mt-3 rounded-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                    <i class="fas fa-arrow-circle-up mr-3"></i> Upgrade to Pro!
-                </button>
+                <button class="bg-warning text-white rounded-lg py-2 px-4">Login</button>
             </nav>
         </header>
 
