@@ -71,7 +71,7 @@ Route::get('/konselor-riwayat', function () {
 Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');
 
 Route::get('/tim-pengajuan', function () {
-    return view('tim-konseling/home-tim-konseling', [
+    return view('tim-konseling/persetujuan', [
         "title" => "Home",
         "user" => "Tim Konseling"
     ]);

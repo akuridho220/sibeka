@@ -26,8 +26,8 @@
                 </button>
             <p class="text-3xl font-bold danger pt-6 pb-2">Laporan yang Belum Terisi</p>
             
-            <div class="grid grid-rows-2 gap-1">
-                <div class="grid grid-cols-3 gap-1">
+            <div class="flex flex-col">
+                <div class="flex flex-row">
                     <div class="box-content w-40 border-1 p-4 rounded-lg" style="background-color: #F6F1F1; display: flex; justify-content: center; align-items: center;">
                         <p class="font-semibold text-black">25 September 2023</p>
                     </div>
@@ -42,7 +42,7 @@
                         <button class="font-semibold text-black">Isi Laporan Konseling</button>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-1">
+                <div class="flex flex-row">
                     <div class="box-content w-40 border-1 p-4 rounded-lg" style="background-color: #F6F1F1; display: flex; justify-content: center; align-items: center;">
                         <p class="font-semibold text-black">18 September 2023</p>
                     </div>
