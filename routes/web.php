@@ -78,12 +78,7 @@ Route::get('/tim-pengajuan', function () {
 });
 
 // Route for Pimpinan
-Route::get('/pimpinan', function () {
-    return view('pimpinan/home-pimpinan', [
-        "title" => "Home",
-        "user" => "Pimpinan"
-    ]);
-});
+Route::get('/pimpinan', [UserController::class, 'index']);
 
 
 

@@ -16,7 +16,7 @@ class TingkatAndProdiChart
     public function build(): \ArielMejiaDev\LarapexCharts\BarChart
     {
         return $this->chart->barChart()
-            ->setTitle('Sebaran Konseli Berdasarkan Tingkat dan Prodi')
+            ->setTitle('Sebaran Berdasarkan Tingkat dan Prodi')
             ->addData('D4 Statistika', [6, 9, 3, 4])
             ->addData('D4 Komputasi Statistik', [2, 8, 3, 5])
             ->addData('D3 Statistika', [7, 3, 8])

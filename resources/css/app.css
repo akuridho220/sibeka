@@ -2,25 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-family-karla { font-family: karla; }
-        .bg-sidebar { background: #025A88; }
-        .cta-btn { color: #3d68ff; }
-        .upgrade-btn { background: #1947ee; }
-        .upgrade-btn:hover { background: #0038fd; }
-        .active-nav-link { background: #024f78; }
-        .nav-item:hover { background: #024f78; }
-        .account-link:hover { background: #3d68ff; }
-        .w-sidebar {width: 248px}
-        .w-content {width: calc(100vw - 244px)}
-        .left-content{left: 244px}
-        .primary-color {color : #025A88;}
-        .secondary-color {color: #0997BC;}
-        .warning {color : #FFC436;}
-        .accept {color: #159600;}
-        .danger {color: #E96C6C;}
-        .bg-accept {background: #159600;}
-        .bg-danger {background: #e96c6c;}
-        .bg-warning {background: #FFC436;}
+.font-family-poppins { font-family: poppins; }
+.bg-sidebar { background: #025A88; }
+.cta-btn { color: #3d68ff; }
+.upgrade-btn { background: #1947ee; }
+.upgrade-btn:hover { background: #0038fd; }
+.active-nav-link { background: #024f78; }
+.nav-item:hover { background: #024f78; }
+.account-link:hover { background: #3d68ff; }
+.w-sidebar {width: 248px}
+.w-content {width: calc(100vw - 244px)}
+.left-content{left: 244px}
+.primary-color {color : #025A88;}
+.secondary-color {color: #0997BC;}
+.warning {color : #FFC436;}
+.accept {color: #159600;}
+.danger {color: #E96C6C;}
+.bg-accept {background: #159600;}
+.bg-danger {background: #e96c6c;}
+.bg-warning {background: #FFC436;}
 
         /* Tab content - closed */
         .tab-content {

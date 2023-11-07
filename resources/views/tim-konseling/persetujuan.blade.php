@@ -84,52 +84,52 @@
             <span id="closeModal2" class="modal-close cursor-pointer absolute top-2 right-2 p-4 text-2xl" style="right: 0; top: -10px;">&times;</span>
             <h2 class="text-2xl font-bold mb-4 text-center">Penjadwalan Konseli</h2>
 
-<!-- Isi form modal -->
-<form class="flex flex-col mt-4">
-    <!-- Tambahkan elemen form sesuai kebutuhan -->
-    <div class="mb-4 flex items-center">
-        <label for="namaKonseli" class="w-1/3">Nama Konseli</label>
-        <input type="text" id="namaKonseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="Mahasiswa B" readonly>
-    </div>
-    <div class="mb-4 flex items-center">
-        <label for="namaKonselor" class="w-1/3">Nama Konselor</label>
-        <select id="namaKonselor" name="namaKonselor" class="p-2 border rounded w-2/3">
-            <option disabled selected>Pilih Konselor</option>
-            <option value="A">Konselor A</option>
-            <option value="B">Konselor B</option>
-            <option value="C">Konselor C</option>
-        </select>
-    </div> 
-    <div class="mb-4 flex items-center">
-        <label for="waktu" class="w-1/3">Waktu Pertemuan</label>
-        <select id="waktu" name="waktu" class="p-2 border rounded w-2/3">
-            <option disabled selected>Waktu yang Diajukan</option>
-            <option value="A">Waktu A</option>
-            <option value="B">Waktu B</option>
-            <option value="C">Waktu C</option>
-        </select>
-    </div>   
-    <div class="mb-4 flex items-center">
-        <label for="ruangan" class="w-1/3">Ruangan Pertemuan</label>
-        <select id="ruangan" name="ruangan" class="p-2 border rounded w-2/3">
-            <option disabled selected>Pilih Ruangan</option>
-            <option value="X">Ruang X</option>
-            <option value="Y">Ruang Y</option>
-            <option value="Z">Ruang Z</option>
-        </select>
-    </div>   
+            <!-- Isi form modal -->
+            <form class="flex flex-col mt-4">
+                <!-- Tambahkan elemen form sesuai kebutuhan -->
+                <div class="mb-4 flex items-center">
+                    <label for="namaKonseli" class="w-1/3">Nama Konseli</label>
+                    <input type="text" id="namaKonseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="Mahasiswa B" readonly>
+                </div>
+                <div class="mb-4 flex items-center">
+                    <label for="namaKonselor" class="w-1/3">Nama Konselor</label>
+                    <select id="namaKonselor" name="namaKonselor" class="p-2 border rounded w-2/3">
+                        <option disabled selected>Pilih Konselor</option>
+                        <option value="A">Konselor A</option>
+                        <option value="B">Konselor B</option>
+                        <option value="C">Konselor C</option>
+                    </select>
+                </div> 
+                <div class="mb-4 flex items-center">
+                    <label for="waktu" class="w-1/3">Waktu Pertemuan</label>
+                    <select id="waktu" name="waktu" class="p-2 border rounded w-2/3">
+                        <option disabled selected>Waktu yang Diajukan</option>
+                        <option value="A">Waktu A</option>
+                        <option value="B">Waktu B</option>
+                        <option value="C">Waktu C</option>
+                    </select>
+                </div>   
+                <div class="mb-4 flex items-center">
+                    <label for="ruangan" class="w-1/3">Ruangan Pertemuan</label>
+                    <select id="ruangan" name="ruangan" class="p-2 border rounded w-2/3">
+                        <option disabled selected>Pilih Ruangan</option>
+                        <option value="X">Ruang X</option>
+                        <option value="Y">Ruang Y</option>
+                        <option value="Z">Ruang Z</option>
+                    </select>
+                </div>   
 
-    <div class="mb-4 flex items-center">
-        <button type="submit" class="text-white font-bold py-2 px-4 w-1/4 rounded mx-auto" style="background-color: #ff7e62;">
-        Ajukan Ulang
-        </button>
+                <div class="mb-4 flex items-center">
+                    <button type="submit" class="text-white font-bold py-2 px-4 w-1/4 rounded mx-auto" style="background-color: #ff7e62;">
+                    Ajukan Ulang
+                    </button>
 
-        <!-- Additional button (Ajukan Ulang) -->
-        <button type="button" class="text-white font-bold py-2 px-4 w-1/4 ml-4 rounded mx-auto" style="background-color: #62ff7b;">
-        Setujui
-        </button>
-    </div>
-</form>
+                    <!-- Additional button (Ajukan Ulang) -->
+                    <button type="button" class="text-white font-bold py-2 px-4 w-1/4 ml-4 rounded mx-auto" style="background-color: #62ff7b;">
+                    Setujui
+                    </button>
+                </div>
+            </form>
 
         </div>
     </div>
