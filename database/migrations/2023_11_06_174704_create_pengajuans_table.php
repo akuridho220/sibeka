@@ -18,13 +18,13 @@ return new class extends Migration
             $table->string('prodi_konseli');
             $table->integer('tingkat_konseli');
             $table->string('jk_konseli');
-            $table->string('nama_konselor');
-            $table->string('jk_konselor');
+            $table->string('nama_konselor')->nullable();
+            $table->string('jk_konselor')->nullable();
             $table->date('hari_1');
-            $table->date('hari_2');
+            $table->date('hari_2')->nullable();
             $table->string('waktu_1');
-            $table->string('waktu_2');
-            $table->string('ruang');
+            $table->string('waktu_2')->nullable();
+            $table->string('ruang')->nullable();
             $table->string('status');
             $table->integer('user_id');
             $table->timestamps();
