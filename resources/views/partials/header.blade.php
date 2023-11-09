@@ -1,4 +1,4 @@
-<header class="w-full items-center bg-white h-16 px-6 border-b-2 flex">
+<header class="w-full items-center bg-white h-16 px-6 border-b-2 flex fixed top-0 right-0 z-40">
     <div class="md:w-1/3 grow">
         <div class="flex flex-row items-center h-16 w-full px-4 md:hidden">
             <!-- mobile hamburger -->

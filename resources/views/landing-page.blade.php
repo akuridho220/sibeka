@@ -25,7 +25,9 @@
                     <li class="list-none px-2 hover:font-semibold"><a href="#aboutus">Tentang Kami</a></li>
                     <li class="list-none px-2 hover:font-semibold"><a href="#steps">Tahapan Pendaftaran</a></li>
                     <li class="list-none px-2 hover:font-semibold"><a href="#time">Jam Buka</a></li>
-                    <button class="bg-warning text-white rounded-lg py-2 px-4 ml-8">Login</button>
+                    <a href="/login">
+                        <button class="bg-warning text-white rounded-lg py-2 px-4 ml-8">Login</button>
+                    </a>
                 </div>
             </div>
         </header>   

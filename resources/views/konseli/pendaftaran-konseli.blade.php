@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col">
+    <div class="w-full overflow-x-hidden flex flex-col relative top-16">
         <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
             <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
                 <div class="flex flex-row items-center justify-between">
@@ -15,15 +15,6 @@
                         <label for="" class="block mb-1 font-bold">NIM Konseli</label>
                         <input type="text" id="nim" class="w-full bg-gray-300 h-10 p-2" value="222111011" readonly>
                     </div>
-                    <!-- <div class="p-2">
-                        <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Jenis Kelamin</label>
-                        <select id="jeniskelamin" class="bg-gray-200 h-10 p-2 w-full">
-                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                            <option value="Bapak">Bapak</option>
-                            <option value="Ibu">Ibu</option>
-                        </select>
-                        <span class="text-xs text-red-500" id="vjeniskelamin"></span>
-                    </div> -->
                     <div class="p-2">
                         <label class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Tingkat</label>
                         <select type="text" id="tingkat" class="bg-gray-200 h-10 p-2 w-full">

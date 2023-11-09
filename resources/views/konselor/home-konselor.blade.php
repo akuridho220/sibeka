@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col">
+    <div class="w-full overflow-x-hidden flex flex-col relative top-16">
         <main class="w-full flex-grow px-4 md:px-12 py-8 min-h-screen">
             <p class="text-xl sm:text-2xl md:text-3xl  font-bold primary-color pb-2 ">Jadwal Pertemuan</p>
                 <div class="text-sm md:text-base box-content max-w-md border-1 p-4 md:p-6 rounded-lg mb-4" style="background-color: #0997BC;">
