@@ -14,6 +14,11 @@
         </div>
     </div>
     <div class="relative w-1/3 flex flex-row justify-end">
+        @auth
+            <div class="flex items-center mr-6">
+                <p>{{ auth()->user()->nama }}</p>
+            </div>
+        @endauth
         <div x-data="{ isOpen: false }">
             <button @click="isOpen = !isOpen" class="realtive flex items-center justify-center z-10 w-10 h-10">
                 <div class="grow-0">
@@ -25,7 +30,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user grow-0"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 <p class="p-1 m-2 text-base">Nama Konseli</p>
                 <p class="p-1 m-2 text-base">email@stis.ac.id</p>
-                <button class="border rounded-lg border-sky-500 py-1 px-4 hover:bg-sky-500">Logout</button>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit" class="border rounded-lg border-sky-500 py-1 px-4 hover:bg-sky-500">Logout</button>
+                </form>
             </div>
         </div>
     </div>

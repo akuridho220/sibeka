@@ -6,18 +6,19 @@
                 <div class="flex flex-row items-center justify-between">
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Pendaftaran Konseling</p>
                 </div>
-                <form class="w-full lg:w-4/5 px-4 md:px-10" novalidate action="" method="post" onsubmit="return validasiForm()">
+                <form class="w-full lg:w-4/5 px-4 md:px-10" novalidate action="/pendaftaran" method="post" onsubmit="return validasiForm()">
+                    @csrf
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konseli</label>
-                        <input type="text" id="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="Ridho Pangestu" readonly>
+                        <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ auth()->user()->nama }}" readonly>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">NIM Konseli</label>
-                        <input type="text" id="nim" class="w-full bg-gray-300 h-10 p-2" value="222111011" readonly>
+                        <input type="text" id="nim" name="nim_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ auth()->user()->nim }}" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Tingkat</label>
-                        <select type="text" id="tingkat" class="bg-gray-200 h-10 p-2 w-full">
+                        <select type="text" id="tingkat" name="tingkat_konseli" class="bg-gray-200 h-10 p-2 w-full">
                             <option value=""disabled selected>Pilih tingkat</option>
                             <option value="1">Tingkat I</option>
                             <option value="2">Tingkat II</option>
@@ -26,31 +27,33 @@
                         </select>
                         <span class="text-xs text-red-500" id="vtingkat"></span>
                     </div>
+                    <input type="hidden" name="jk_konseli" value="{{ auth()->user()->jk }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Nomor HP</label>
-                        <input type="number" id="nomorhp" class="w-full bg-gray-200 h-10 p-2">
+                        <input type="number" id="nomorhp" name="nomor_hp" class="w-full bg-gray-200 h-10 p-2">
                         <span class="text-xs text-red-500" id="vnomorhp"></span>
                     </div>                    
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Tanggal dan Waktu 1</label>
-                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="firstDay" onchange="updateTimeOptions('firstDay', 'time1', 'vfirstDay')">
+                        <input type="date" name="hari_1" class="w-full bg-gray-200 h-10 p-2" name="" id="firstDay" onchange="updateTimeOptions('firstDay', 'time1', 'vfirstDay')">
                         <span class="text-xs text-red-500" id="vfirstDay"></span>
-                        <select id="time1" class="bg-gray-200 h-10 p-2 w-full mt-1" disabled>
+                        <select id="time1" name="waktu_1" class="bg-gray-200 h-10 p-2 w-full mt-1" disabled>
                             <option value="" disabled selected>Pilih waktu</option>
                         </select>
                         <span class="text-xs text-red-500" id="vtime1"></span>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">Tanggal dan Waktu 2</label>
-                        <input type="date" class="w-full bg-gray-200 h-10 p-2" name="" id="secondDay" onchange="updateTimeOptions('secondDay', 'time2', 'vsecondDay')">
+                        <input type="date" name="hari_2" class="w-full bg-gray-200 h-10 p-2" name="" id="secondDay" onchange="updateTimeOptions('secondDay', 'time2', 'vsecondDay')">
                         <span class="text-xs text-red-500" id="vsecondDay"></span>
-                        <select id="time2" class="bg-gray-200 h-10 p-2 w-full mt-1" disabled>
+                        <select id="time2" name="waktu_2" class="bg-gray-200 h-10 p-2 w-full mt-1" disabled>
                             <option value="" disabled selected>Pilih waktu</option>
                         </select>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Pilih Jenis Kelamin Konselor yang Nyaman</label>
-                        <select id="jk_konselor" class="bg-gray-200 h-10 p-2 w-full">
+                        <select id="jk_konselor" name="jk_konselor" class="bg-gray-200 h-10 p-2 w-full">
                             <option value="" disabled selected>Pilih Konselor</option>
                             <option value="Bapak">Bapak</option>
                             <option value="Ibu">Ibu</option>
@@ -60,7 +63,7 @@
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Apakah Bapak/Ibu Konselor diizinkan untuk ditemani Konselor yang lain?</label>
-                        <select id="ditemani_konselor" class="bg-gray-200 h-10 p-2 w-full">
+                        <select id="ditemani_konselor" name="opsi_ditemani" class="bg-gray-200 h-10 p-2 w-full">
                             <option value="" disabled selected>Pilih opsi</option>
                             <option value="Boleh">Ya, boleh</option>
                             <option value="Tidak">Tidak</option>

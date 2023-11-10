@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PengajuanController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -22,9 +25,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/login', function (){
-    return view('login');
-});
+//Register
+Route::get('/register', [RegisterController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+
+// Login
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 
 // Route for Konseli
@@ -87,3 +95,6 @@ Route::get('/pimpinan', [UserController::class, 'index']);
 
 
 
+
+Route::post('/pendaftaran', [PengajuanController::class, 'buatPengajuan'])->middleware('auth');
+//Route::resource('/pendaftaran/posts', PengajuanController::class)->middleware('guest');

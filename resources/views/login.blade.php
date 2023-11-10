@@ -7,11 +7,17 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-        .font-family-karla { font-family: poppins; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+        .font-family-poppins { font-family: poppins; }
     </style>
 </head>
-<body class="bg-gray-200 font-family-karla flex items-center justify-center h-screen">
+<body class="bg-gray-200 font-family-poppins flex items-center justify-center h-screen">
+    @if(session()->has('loginError'))
+        <div class="">
+            {{ session('loginError') }}
+            <button></button>
+        </div>
+    @endif
     <div class="box-content bg-white max-w-lg px-12 rounded-xl shadow-lg">
         <div class="pt-5 pb-4">
             <img src="img/logo.png" alt="logo" width="64px" class="mx-auto my-auto">
@@ -20,17 +26,23 @@
             <p class="text-3xl pb-2">Masuk</p>
             <p class="font-light">Gunakan akun Sipadu</p>
         </div>
-        <form>
+        <form action="/login" method="post">
+            @csrf
             <div class="flex flex-col">
-                <label for="username">Username</label>
-                <input id="username" name="username" type="text" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
             </div>
             <div class="flex flex-col pt-6 pb-6">
                 <label for="password">Password</label>
                 <input id="password" name="password" type="password" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
             </div>
             <div class="pb-6">
-            <button class="text-white font-light w-64 py-2 px-2 rounded-lg" style="background-color: #025A88;">Login</button>
+                <button class="text-white font-light w-64 py-2 px-2 rounded-lg" style="background-color: #025A88;">Login</button>
+            </div>
+            <div>
+                <p>Belum punya akun? 
+                    <a href="/register">Daftar!</a>
+                </p>
             </div>
         </form>
     </div>

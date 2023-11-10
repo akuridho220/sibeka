@@ -17,15 +17,16 @@ return new class extends Migration
             $table->string('nama_konseli');
             $table->string('prodi_konseli');
             $table->integer('tingkat_konseli');
+            $table->string('kelas_konseli');
             $table->string('jk_konseli');
             $table->string('nama_konselor');
-            $table->date('hari');
-            $table->string('waktu');
+            // $table->date('hari');
+            $table->datetime('waktu');
             $table->string('topik');
-            $table->string('hasil');
-            $table->string('solusi');
+            $table->text('hasil');
+            $table->text('solusi');
             $table->integer('user_id');
-            $table->integer('pengjuan_id');
+            $table->integer('pengajuan_id');
             $table->timestamps();
         });
     }

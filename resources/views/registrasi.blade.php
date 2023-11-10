@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Bimbingan dan Konseling</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+        .font-family-poppins { font-family: poppins; }
+    </style>
+</head>
+<body class="bg-gray-200 font-family-poppins flex items-center justify-center h-screen ">
+    <div class="box-content bg-white max-w-lg px-12  rounded-xl shadow-lg">
+        <div class="pt-5 pb-4">
+            <img src="img/logo.png" alt="logo" width="64px" class="mx-auto my-auto">
+        </div>
+        <div class="text-center pb-3">
+            <p class="text-3xl pb-2">Regristrasi</p>
+        </div>
+        <form method="post" action="/register" class="flex flex-col gap-2">
+            @csrf
+            <div class="flex flex-col">
+                <label for="nama">Nama</label>
+                <input id="nama" name="nama" type="text" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+            </div>
+            <div class="flex flex-col">
+                <label for="nim">NIM</label>
+                <input id="nim" name="nim" type="text" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+            </div>
+            <div class="flex flex-col">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+            </div>
+            <div class="flex flex-col ">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+            </div>
+            <div class="flex flex-col pb-1 ">
+                <label for="jk">Jenis Kelamin</label>
+                <select id="jk" name="jk" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="flex flex-col pb-6">
+                <button class="text-white font-light w-64 py-2 px-2 rounded-lg" style="background-color: #025A88;">Daftar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
