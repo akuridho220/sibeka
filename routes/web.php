@@ -82,12 +82,13 @@ Route::get('/konselor-riwayat', function () {
 // Route for Team
 Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');
 
-Route::get('/tim-pengajuan', function () {
-    return view('tim-konseling/persetujuan', [
-        "title" => "Home",
-        "user" => "Tim Konseling"
-    ]);
-});
+Route::get('/tim-pengajuan', [PengajuanController::class, 'index']);
+// Route::get('/tim-pengajuan', function () {
+//     return view('tim-konseling/persetujuan', [
+//         "title" => "Home",
+//         "user" => "Tim Konseling"
+//     ]);
+// });
 
 // Route for Pimpinan
 Route::get('/pimpinan', [UserController::class, 'index']);

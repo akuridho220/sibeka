@@ -14,21 +14,15 @@
                     </thead>
                     <tbody style="background-color: #EEEEEE;">
                         <!-- Data Rows Go Here -->
-                        <tr>
-                            <td class="py-2 px-4 border-b">1</td>
-                            <td class="py-2 px-4 border-b">Konselor A</td>
-                            <td class="py-2 px-4 border-b">
-                                <button id="openModal1" class="text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="py-2 px-4 border-b">2</td>
-                            <td class="py-2 px-4 border-b">Mahasiswa B</td>
-                            <td class="py-2 px-4 border-b">
-                                <button id="openModal2" class="text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
-                            </td>
-                        </tr>
+                        @foreach ($pengajuans as $p)
+                            <tr>
+                                <td class="py-2 px-4 border-b">{{ $loop->iteration }}</td>
+                                <td class="py-2 px-4 border-b">{{ $p->nama_konseli }}</td>
+                                <td class="py-2 px-4 border-b">
+                                    <button id="openModal1" class="text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
+                                </td>
+                            </tr>
+                        @endforeach
                         <!-- Add more rows as needed -->
                     </tbody>
                 </table>

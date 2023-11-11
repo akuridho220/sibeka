@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('ruang')->nullable();
             $table->string('opsi_ditemani');
             $table->integer('status')->default(1);
-            $table->integer('user_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

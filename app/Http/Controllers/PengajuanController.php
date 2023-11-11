@@ -14,7 +14,12 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        //
+        $pengajuan = Pengajuan::all();
+        return view('tim-konseling.persetujuan',[
+            'pengajuans' =>  $pengajuan,
+            'title' => 'Pendaftaran',
+            'user' => 'Tim Konseling'
+        ]);
     }
 
     /**
