@@ -22,15 +22,15 @@ return new class extends Migration
             $table->string('nomor_hp');
             $table->string('nama_konselor')->nullable();
             $table->string('jk_konselor')->nullable();
-            $table->datetime('hari_1');
-            $table->datetime('hari_2')->nullable();
+            $table->date('hari_1');
+            $table->date('hari_2')->nullable();
             $table->string('waktu_1');
             $table->string('waktu_2')->nullable();
             $table->datetime('waktu')->nullable();
             $table->string('ruang')->nullable();
             $table->string('opsi_ditemani');
             $table->integer('status')->default(1);
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

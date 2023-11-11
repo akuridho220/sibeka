@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-auto flex flex-col">
+    <div class="w-full overflow-x-auto flex flex-col relative top-16">
         <main class="w-full flex-grow md:p-6 min-h-screen">
             <div class="container mx-auto lg:w-2/3 w-5/6" id="container">
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-center">Daftar Pengajuan Konseling</h2>
-                <table class="min-w-full bg-white border border-gray-300 text-center mx-auto">
+                <table class="w-full bg-white border border-gray-300 text-center mx-auto">
                     <thead style="background-color: #0997BC;" class="text-white font-bold">
                         <tr>
                             <th class="py-2 px-4 border-b">No</th>
@@ -17,17 +17,67 @@
                         @foreach ($pengajuans as $p)
                             <tr>
                                 <td class="py-2 px-4 border-b">{{ $loop->iteration }}</td>
-                                <td class="py-2 px-4 border-b">{{ $p->nama_konseli }}</td>
+                                <td class="py-2 px-4 border-b">{{ $p->user->nama }}</td>
                                 <td class="py-2 px-4 border-b">
                                     <button id="openModal1" class="text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
                                 </td>
+                                <div id="myModal" class="modal hidden flex-col fixed w-full z-10">
+                                    <div class="modal-content bg-white p-4 sm:p-6 rounded shadow-lg w-5/6 md:w-2/3 lg:w-1/2 border">
+                                        <span id="closeModal1" class="modal-close cursor-pointer md:p-4 text-xl md:text-2xl">&times;</span>
+                                        <h2 class="font-bold md:text-lg mb-4 text-center">Penjadwalan</h2>
+                                        <!-- Isi form modal -->
+                                        <form action="/pendaftaran/pengajuans/{{ $p->id }}" method="post" class="flex flex-col mt-2 sm:mt-4">
+                                            @method('patch')
+                                            @csrf
+                                            <!-- Tambahkan elemen form sesuai kebutuhan -->
+                                            <div class="mb-2 sm:mb-4 flex items-center">
+                                                <label for="namaKonseli" class="w-1/3 lg:w-1/4">Nama Konseli</label>
+                                                <input type="text" id="nama_konseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="{{ $p->user->nama }}" readonly>
+                                            </div>
+                                            <div class="mb-2 sm:mb-4 flex items-center">
+                                                <label for="namaKonselor" class="w-1/3 lg:w-1/4">Nama Konselor</label>
+                                                <input type="text" id="nama_konselor" name="namaKonselor" class="p-2 border rounded w-2/3">
+                                            </div>
+                                            
+                                            <div class="mb-2 sm:mb-4 flex items-center">
+                                                <label for="waktu" class="w-1/3 lg:w-1/4">Waktu Pertemuan</label>
+                                                <select id="waktu" name="waktu" class="bg-gray-200 h-10 p-2 w-2/3">
+                                                    <option value="" disabled selected>Pilih Waktu Pertemuan</option>
+                                                    <option value="{{ date_create_from_format("d-M-Y H:i:s", $p->hari_1.' '.$p->waktu_1) }}">{{ $p->hari_1.' pukul '.$p->waktu_1 }}</option>
+                                                    <option value="{{ date_create_from_format("d-M-Y H:i:s", $p->hari_2.' '.$p->waktu_2) }}">{{ $p->hari_2.' pukul '.$p->waktu_2 }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2 sm:mb-4 flex items-center">
+                                                <label for="ruangan" class="w-1/3 lg:w-1/4">Ruangan Pertemuan</label>
+                                                <select id="ruangan" name="ruang" class="p-2 border rounded w-2/3">
+                                                    <option disabled selected>Pilih Ruangan</option>
+                                                    <option value="X">Ruang X</option>
+                                                    <option value="Y">Ruang Y</option>
+                                                    <option value="Z">Ruang Z</option>
+                                                </select>
+                                            </div>   
+                                            <div class="mb-4 flex items-center">
+                                                <a href="">
+                                                    <button type="submit" class="text-white font-bold py-2 px-4 rounded mx-auto" style="background-color: #ff7e62;">
+                                                        Ajukan Ulang
+                                                    </button>
+                                                </a>
+                    
+                                                <!-- Additional button (Ajukan Ulang) -->
+                                                <button type="submit"  class="text-white font-bold py-2 px-4 ml-4 rounded mx-auto" style="background-color: #62ff7b;">
+                                                    Setujui
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </tr>
                         @endforeach
                         <!-- Add more rows as needed -->
                     </tbody>
                 </table>
             </div>
-            <!-- Modal Konselor -->
+            {{-- <!-- Modal Konselor -->
             <div id="myModal1" class="modal hidden relative -top-36 items-center justify-center">
                 <div class="modal-content bg-white p-4 sm:p-6 rounded shadow-lg w-3/4 md:w-2/3 lg:w-1/2 border">
                     <span id="closeModal1" class="modal-close cursor-pointer md:p-4 text-xl md:text-2xl">&times;</span>
@@ -35,10 +85,11 @@
 
                     <!-- Isi form modal -->
                     <form class="flex flex-col mt-2 sm:mt-4">
+                        @csrf
                         <!-- Tambahkan elemen form sesuai kebutuhan -->
                         <div class="mb-2 sm:mb-4 flex items-center">
                             <label for="namaKonseli" class="w-1/3 lg:w-1/4">Nama Konseli</label>
-                            <input type="text" id="namaKonseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="Mahasiswa A" readonly>
+                            <input type="text" id="namaKonseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="" readonly>
                         </div>
                         <div class="mb-2 sm:mb-4 flex items-center">
                             <label for="namaKonselor" class="w-1/3 lg:w-1/4">Nama Konselor</label>
@@ -119,7 +170,7 @@
                     </form>
 
                 </div>
-            </div>         
+            </div>          --}}
         </main>
     </div>
 
@@ -130,16 +181,16 @@
         const container = document.getElementById('container');
         const openModalBtn1 = document.getElementById('openModal1');
         const closeModalBtn1 = document.getElementById('closeModal1');
-        const modal1 = document.getElementById('myModal1');
+        const modal = document.getElementById('myModal');
 
         openModalBtn1.addEventListener('click', () => {
-            modal1.classList.replace('hidden', 'flex');
-            container.classList.add('blur-[2px]');
+            modal.classList.replace('hidden', 'flex');
+            //container.classList.add('blur-[2px]');
         });
 
         closeModalBtn1.addEventListener('click', () => {
-            modal1.classList.replace('flex','hidden');
-            container.classList.remove('blur-[2px]');
+            modal.classList.replace('flex','hidden');
+            //container.classList.remove('blur-[2px]');
         });
 
         // JavaScript untuk mengatur tampilan modal Konseli
@@ -149,12 +200,15 @@
 
         openModalBtn2.addEventListener('click', () => {
             modal2.classList.replace('hidden', 'flex');
-            container.classList.add('blur-[2px]');
+            //container.classList.add('blur-[2px]');
         });
 
         closeModalBtn2.addEventListener('click', () => {
             modal2.classList.replace('flex','hidden');
-            container.classList.remove('blur-[2px]');
+            //container.classList.remove('blur-[2px]');
         });
+
+
+        $('.')
     </script>
 @endsection

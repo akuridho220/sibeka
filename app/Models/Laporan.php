@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Laporan extends Model
 {
@@ -11,11 +12,12 @@ class Laporan extends Model
 
     protected $guarded = ["id"];
 
-    public function User(){
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function Pengajuan(){
+    public function pengajuan(){
         return $this->belongsTo(Pengajuan::class);
     }
 }

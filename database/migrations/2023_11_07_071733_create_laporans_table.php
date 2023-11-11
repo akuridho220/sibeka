@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('topik');
             $table->text('hasil');
             $table->text('solusi');
-            $table->integer('user_id');
-            $table->integer('pengajuan_id');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('pengajuan_id')->references('id')->on('pengajuans');
             $table->timestamps();
         });
     }

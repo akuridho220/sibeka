@@ -43,12 +43,7 @@ Route::get('/konseli', function () {
     ]);
 });
 
-Route::get('/konseli-pendaftaran', function () {
-    return view('konseli/pendaftaran-konseli', [
-        "title" => "Pendaftaran",
-        "user" => "Konseli"
-    ]);
-});
+Route::get('/konseli-pendaftaran', [PengajuanController::class, 'create'])->middleware('auth');
 
 Route::get('/konseli-riwayat', function () {
     return view('konseli/riwayat-konseli', [
@@ -83,12 +78,6 @@ Route::get('/konselor-riwayat', function () {
 Route::get('/tim', [UserController::class, 'index'])->name('tim-konseling.home-tim-konseling');
 
 Route::get('/tim-pengajuan', [PengajuanController::class, 'index']);
-// Route::get('/tim-pengajuan', function () {
-//     return view('tim-konseling/persetujuan', [
-//         "title" => "Home",
-//         "user" => "Tim Konseling"
-//     ]);
-// });
 
 // Route for Pimpinan
 Route::get('/pimpinan', [UserController::class, 'index']);
@@ -98,4 +87,5 @@ Route::get('/pimpinan', [UserController::class, 'index']);
 
 
 Route::post('/pendaftaran', [PengajuanController::class, 'buatPengajuan'])->middleware('auth');
-//Route::resource('/pendaftaran/posts', PengajuanController::class)->middleware('guest');
+//Route::resource('/pendaftaran/posts', [PengajuanController::class, 'approve'])->middleware('auth');
+Route::resource('/pendaftaran/pengajuans', PengajuanController::class)->middleware('auth');

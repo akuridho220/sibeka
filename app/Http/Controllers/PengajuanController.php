@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePengajuanRequest;
 use App\Http\Requests\UpdatePengajuanRequest;
@@ -14,7 +15,7 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        $pengajuan = Pengajuan::all();
+        $pengajuan = Pengajuan::where('status', 1)->get();
         return view('tim-konseling.persetujuan',[
             'pengajuans' =>  $pengajuan,
             'title' => 'Pendaftaran',
@@ -27,22 +28,17 @@ class PengajuanController extends Controller
      */
     public function create()
     {
-        //
+        return view('konseli.pendaftaran-konseli',[
+            'title' => 'Pendaftaran',
+            'user' => 'Konseli'
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function buatPengajuan(StorePengajuanRequest $request)
-    {
-        // $waktu_1 = $request->waktu1.$request;
-        $jam1 = substr($request->waktu1, 0, 2);
-        $jam2 = substr($request->waktu2, 0, 2);
-        $date1 = date_create_from_format("d-M-Y h", $request->tanggal1.' '.$jam1);
-        $date2 = date_create_from_format("d-M-Y h", $request->tanggal2.' '.$jam2);
-        
-        // $request->tanggal1 = $date1;
-        // $request->tanggal2 = $date2;
+    {        
         $validatedData = $request->validate([
             'nama_konseli' => ['required'],
             'nim_konseli' => ['required'],
@@ -56,10 +52,21 @@ class PengajuanController extends Controller
             'jk_konselor'=> ['required',''],
             'opsi_ditemani'=> ['required']
         ]);
-        $validatedData['user_id'] = Auth::id();        
-        //return $request;
+        $validatedData['user_id'] = Auth::id();
         Pengajuan::create($validatedData);
         return redirect('/konseli');
+    }
+
+    public function approve(Request $request, Pengajuan $pengajuan){
+        $validatedData = $request->validate([
+            'nama_konseli' => ['required'],
+            'nama_konselor' => ['required'],
+            'waktu' => ['required'],
+            'ruang' => ['required']
+        ]);
+        $validatedData['status'] = 2;
+        Pengajuan::where('id',$pengajuan->id)->update($validatedData);
+        return redirect('/tim');
     }
 
     /**
@@ -83,7 +90,16 @@ class PengajuanController extends Controller
      */
     public function update(UpdatePengajuanRequest $request, Pengajuan $pengajuan)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_konseli' => ['required'],
+            'nama_konselor' => ['required'],
+            'waktu' => ['required'],
+            'ruang' => ['required']
+        ]);
+        $validatedData['status'] = 2;
+        Pengajuan::where('id',$pengajuan->id)
+            ->update($validatedData);
+        return redirect('/tim');
     }
 
     /**
