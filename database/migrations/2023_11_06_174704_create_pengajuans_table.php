@@ -26,7 +26,7 @@ return new class extends Migration
             $table->date('hari_2')->nullable();
             $table->string('waktu_1');
             $table->string('waktu_2')->nullable();
-            $table->datetime('waktu')->nullable();
+            $table->date('waktu')->nullable();
             $table->string('ruang')->nullable();
             $table->string('opsi_ditemani');
             $table->integer('status')->default(1);

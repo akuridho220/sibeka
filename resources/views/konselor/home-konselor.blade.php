@@ -6,7 +6,7 @@
                 <div class="text-sm md:text-base box-content max-w-md border-1 p-4 md:p-6 rounded-lg mb-4" style="background-color: #0997BC;">
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Hari / Tanggal</p>
-                        <p class="font-semibold text-white">Senin, 2 Oktober 2023</p>
+                        <p class="font-semibold text-white">{{ $pengajuan->waktu }}</p>
                     </div>    
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Jam</p>
@@ -21,9 +21,13 @@
                         <p class="font-semibold text-white">Mahasiswa A</p>
                     </div> 
                 </div>
-                <button class="rounded-lg p-2 md:p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">
-                    <a href="/konselor-laporan" class="text-sm md:text-base font-semibold text-white">Isi Laporan Konseling</a>
-                </button>
+                <form action="" method="post">
+                    @csrf
+                    <button class="rounded-lg p-2 md:p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">
+                        <a href="/konselor-laporan" class="text-sm md:text-base font-semibold text-white">Isi Laporan Konseling</a>
+                    </button>
+                </form>
+                
 
             <p class="text-xl md:text-3xl font-bold danger pt-6 pb-2">Laporan yang Belum Terisi</p>
             <div class="text-sm md:text-base flex flex-col gap-5">

@@ -57,17 +57,17 @@ class PengajuanController extends Controller
         return redirect('/konseli');
     }
 
-    public function approve(Request $request, Pengajuan $pengajuan){
-        $validatedData = $request->validate([
-            'nama_konseli' => ['required'],
-            'nama_konselor' => ['required'],
-            'waktu' => ['required'],
-            'ruang' => ['required']
-        ]);
-        $validatedData['status'] = 2;
-        Pengajuan::where('id',$pengajuan->id)->update($validatedData);
-        return redirect('/tim');
-    }
+    // public function approve(Request $request, Pengajuan $pengajuan){
+    //     $validatedData = $request->validate([
+    //         'nama_konseli' => ['required'],
+    //         'nama_konselor' => ['required'],
+    //         'waktu' => ['required'],
+    //         'ruang' => ['required']
+    //     ]);
+    //     $validatedData['status'] = 2;
+    //     Pengajuan::where('id', $pengajuan->id)->update($validatedData);
+    //     return redirect('/tim');
+    // }
 
     /**
      * Display the specified resource.
@@ -97,8 +97,7 @@ class PengajuanController extends Controller
             'ruang' => ['required']
         ]);
         $validatedData['status'] = 2;
-        Pengajuan::where('id',$pengajuan->id)
-            ->update($validatedData);
+        Pengajuan::where('id',$pengajuan->id)->update($validatedData);
         return redirect('/tim');
     }
 
@@ -107,6 +106,7 @@ class PengajuanController extends Controller
      */
     public function destroy(Pengajuan $pengajuan)
     {
-        //
+        Pengajuan::destroy($pengajuan->id);
+        return redirect('/tim-pengajuan');
     }
 }

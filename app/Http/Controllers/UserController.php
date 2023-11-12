@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\GenderChart;
-use App\Charts\TingkatAndProdiChart;
+use App\Models\Pengajuan;
 use App\Charts\TopikChart;
+use App\Charts\GenderChart;
 use Illuminate\Http\Request;
+use App\Charts\TingkatAndProdiChart;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(GenderChart $genderChart, TopikChart $topikChart, TingkatAndProdiChart $tingkatProdiChart)
+    public function home(GenderChart $genderChart, TopikChart $topikChart, TingkatAndProdiChart $tingkatProdiChart)
     {
         return view('tim-konseling.home-tim-konseling', [
             'genderChart' => $genderChart->build(),
@@ -20,6 +22,27 @@ class UserController extends Controller
             'tingkatProdiChart' => $tingkatProdiChart->build(),
             'title' => "Home",
             'user' => "Tim Konseling"
+        ]);
+    }
+    public function konseli(){
+        $lastPengajuan = Pengajuan::where('user_id', auth()->id())->get()->last();
+        return view('konseli.home', [
+            'lastPengajuan' => $lastPengajuan,
+            'user' => 'Konseli',
+            'title' => 'Home'
+        ]);
+    }
+
+    public function konselor(){
+        $nama =Auth::user()->nama;
+        $pengajuan = Pengajuan::where([
+            'nama_konselor' => $nama,
+            'status' => 2
+        ])->get()->last();
+        return view('konselor.home-konselor', [
+            'pengajuan' => $pengajuan,
+            'user' => 'Konseli',
+            'title' => 'Home'
         ]);
     }
 

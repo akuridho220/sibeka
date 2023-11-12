@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('kelas_konseli');
             $table->string('jk_konseli');
             $table->string('nama_konselor');
-            // $table->date('hari');
-            $table->datetime('waktu');
+            $table->date('hari');
+            $table->string('waktu');
             $table->string('topik');
             $table->text('hasil');
             $table->text('solusi');

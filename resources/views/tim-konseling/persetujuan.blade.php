@@ -31,21 +31,22 @@
                                             @csrf
                                             <!-- Tambahkan elemen form sesuai kebutuhan -->
                                             <div class="mb-2 sm:mb-4 flex items-center">
-                                                <label for="namaKonseli" class="w-1/3 lg:w-1/4">Nama Konseli</label>
-                                                <input type="text" id="nama_konseli" name="namaKonseli" class="p-2 border rounded w-2/3" value="{{ $p->user->nama }}" readonly>
+                                                <label for="nama_konseli" class="w-1/3 lg:w-1/4">Nama Konseli</label>
+                                                <input type="text" id="nama_konseli" name="nama_konseli" class="p-2 border rounded w-2/3" value="{{ $p->user->nama }}" readonly>
                                             </div>
                                             <div class="mb-2 sm:mb-4 flex items-center">
-                                                <label for="namaKonselor" class="w-1/3 lg:w-1/4">Nama Konselor</label>
-                                                <input type="text" id="nama_konselor" name="namaKonselor" class="p-2 border rounded w-2/3">
+                                                <label for="nama_konselor" class="w-1/3 lg:w-1/4">Nama Konselor</label>
+                                                <input type="text" id="nama_konselor" name="nama_konselor" class="p-2 border rounded w-2/3">
                                             </div>
                                             
                                             <div class="mb-2 sm:mb-4 flex items-center">
                                                 <label for="waktu" class="w-1/3 lg:w-1/4">Waktu Pertemuan</label>
                                                 <select id="waktu" name="waktu" class="bg-gray-200 h-10 p-2 w-2/3">
                                                     <option value="" disabled selected>Pilih Waktu Pertemuan</option>
-                                                    <option value="{{ date_create_from_format("d-M-Y H:i:s", $p->hari_1.' '.$p->waktu_1) }}">{{ $p->hari_1.' pukul '.$p->waktu_1 }}</option>
-                                                    <option value="{{ date_create_from_format("d-M-Y H:i:s", $p->hari_2.' '.$p->waktu_2) }}">{{ $p->hari_2.' pukul '.$p->waktu_2 }}</option>
+                                                    <option value="{{ $p->hari_1 }}">{{ $p->hari_1.' pukul '.$p->waktu_1 }}</option>
+                                                    <option value="{{ $p->hari_2 }}">{{ $p->hari_2.' pukul '.$p->waktu_2 }}</option>
                                                 </select>
+                                                <input type="hidden" name="" id="" value="">
                                             </div>
                                             <div class="mb-2 sm:mb-4 flex items-center">
                                                 <label for="ruangan" class="w-1/3 lg:w-1/4">Ruangan Pertemuan</label>
@@ -57,12 +58,13 @@
                                                 </select>
                                             </div>   
                                             <div class="mb-4 flex items-center">
-                                                <a href="">
+                                                <form method="post" action="/pendaftaran/pengajuans/{{ $p->id }}">
+                                                    @method('delete')
+                                                    @csrf
                                                     <button type="submit" class="text-white font-bold py-2 px-4 rounded mx-auto" style="background-color: #ff7e62;">
                                                         Ajukan Ulang
                                                     </button>
-                                                </a>
-                    
+                                                </form>
                                                 <!-- Additional button (Ajukan Ulang) -->
                                                 <button type="submit"  class="text-white font-bold py-2 px-4 ml-4 rounded mx-auto" style="background-color: #62ff7b;">
                                                     Setujui
