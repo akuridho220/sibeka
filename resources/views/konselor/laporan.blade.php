@@ -7,35 +7,40 @@
                 <div>
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Laporan Konseling</p>
                 </div>
-                <form class="w-full lg:w-4/5 px-4 md:px-10" id="formLaporan" action="" method="post" onsubmit="return validasiForm()">
+                <form class="w-full lg:w-4/5 px-4 md:px-10" id="formLaporan" action="/pendaftaran/pengajuans" method="post" onsubmit="return validasiForm()">
+                    @csrf
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konselor</label>
-                        <input type="text" id="nama_konselor" class="w-full bg-gray-300 h-10 p-2" value="Firdaus" readonly>
+                        <input type="text" id="nama_konselor" name="nama_konselor" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->nama_konselor }}" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Waktu Konseling</label>
-                        <input type="text" id="tanggal_konseling" class="w-1/2 bg-gray-300 h-10 p-2" value="29 Oktober 2023" readonly>
-                        <input type="text" id="waktu_konseling" class="w-1/3 bg-gray-300 h-10 p-2" value="13.00-15.00" readonly>
+                        <input type="text" id="tanggal_konseling" name="hari" class="w-1/2 bg-gray-300 h-10 p-2" value="{{ $pengajuan->hari }}" readonly>
+                        <input type="text" id="waktu_konseling" name="waktu"  class="w-1/3 bg-gray-300 h-10 p-2" value="{{ $pengajuan->waktu }}" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konseli</label>
-                        <input type="text" id="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="Ridho Pangestu" readonly>
+                        <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->nama_konseli }}" readonly>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">NIM Konseli</label>
-                        <input type="text" id="nim" class="w-full bg-gray-300 h-10 p-2" value="222111011" readonly>
+                        <input type="text" id="nim" name="nim_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->nim_konseli }}" readonly>
+                    </div>
+                    <div class="p-2">
+                        <label for="" class="block mb-1 font-bold">Jenis Kelamin Konseli</label>
+                        <input type="text" id="jk_konseli" name="jk_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->jk_konseli }}" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Program Studi</label>
-                        <input type="text" id="prodi" class="w-full bg-gray-300 h-10 p-2" value="D-IV Komputasi Statistik" readonly>
+                        <input type="text" id="prodi" name="prodi_konseli" class="w-full bg-gray-300 h-10 p-2" value="D-IV Komputasi Statistik" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Kelas</label>
-                        <input type="text" id="kelas" class="w-full bg-gray-300 h-10 p-2" value="3SI3" readonly>
+                        <input type="text" id="kelas" name="kelas_konseli" class="w-full bg-gray-300 h-10 p-2" value="3SI3" readonly>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Klasifikasi Permasalahan Utama</label>
-                        <select id="klasifikasi" class="bg-gray-200 h-10 p-2 w-full">
+                        <select id="klasifikasi" name="topik" class="bg-gray-200 h-10 p-2 w-full">
                             <option disabled selected value="">Pilih permasalahan utama</option>
                             <option value="Akademik">Akademik</option>
                             <option value="Keluarga">Keluarga</option>
@@ -46,12 +51,12 @@
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Hasil Konseling</label>
-                        <textarea class="w-full bg-gray-200 h-fit p-2" id="hasil" placeholder="Deskripsikan hasil konseling"></textarea>
+                        <textarea class="w-full bg-gray-200 h-fit p-2" id="hasil" name="hasil" placeholder="Deskripsikan hasil konseling"></textarea>
                         <span class="text-xs text-red-500" id="vhasil"></span>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Solusi</label>
-                        <textarea class="w-full bg-gray-200 h-fit p-2" id="solusi" placeholder="Deskripsikan solusi konseling"></textarea>
+                        <textarea class="w-full bg-gray-200 h-fit p-2" id="solusi" name="solusi" placeholder="Deskripsikan solusi konseling"></textarea>
                         <span class="text-xs text-red-500" id="vsolusi"></span>
                     </div>
                     <div class="p-2">
@@ -213,7 +218,7 @@
                     } else {
                         lanjutan.classList.remove("border");
                         lanjutan.classList.remove("border-red-700");
-                        document.getElementById("vtindak_lanjut").textContent = "Isian tidak boleh kosong";
+                        document.getElementById("vtindak_lanjut").textContent = "";
                     }
 
                     // //konseling lanjutan tidak boleh kosong (jika konselor memilih ada konseling lanjutan)

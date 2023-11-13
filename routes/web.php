@@ -71,6 +71,9 @@ Route::get("/konselor", [UserController::class,"konselor"])->middleware('auth');
 //     ]);
 // });
 
+Route::get('/konselor-laporan/{id}', [LaporanController::class, 'buatLaporan'])->middleware('auth');
+
+
 Route::get('/konselor-laporan', function () {
     return view('konselor/laporan', [
         "title" => "Laporan",

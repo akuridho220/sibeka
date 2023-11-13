@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,17 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        $pengajuan = Pengajuan::where('status', 1)->get();
+        //$pengajuan = Pengajuan::where('status', 1)->get();
+        $pengajuan = Pengajuan::all()->sortBy("status");
+        $konselors_l = User::where([
+            'role' => 2,
+            'jk' => 'Laki-laki'
+        ]);
+
+        $konselors_p = User::where([
+            'role'=> 2,
+            'jk' => 'Perempuan'
+        ]);
         return view('tim-konseling.persetujuan',[
             'pengajuans' =>  $pengajuan,
             'title' => 'Pendaftaran',
@@ -27,7 +38,7 @@ class PengajuanController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
         return view('konseli.pendaftaran-konseli',[
             'title' => 'Pendaftaran',
             'user' => 'Konseli'
@@ -93,7 +104,7 @@ class PengajuanController extends Controller
         $validatedData = $request->validate([
             'nama_konseli' => ['required'],
             'nama_konselor' => ['required'],
-            'waktu' => ['required'],
+            'hari' => ['required'],
             'ruang' => ['required']
         ]);
         $validatedData['status'] = 2;

@@ -19,7 +19,7 @@
                                 <td class="py-2 px-4 border-b">{{ $loop->iteration }}</td>
                                 <td class="py-2 px-4 border-b">{{ $p->user->nama }}</td>
                                 <td class="py-2 px-4 border-b">
-                                    <button id="openModal1" class="text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
+                                    <button id="openModal1" class="btn text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
                                 </td>
                                 <div id="myModal" class="modal hidden flex-col fixed w-full z-10">
                                     <div class="modal-content bg-white p-4 sm:p-6 rounded shadow-lg w-5/6 md:w-2/3 lg:w-1/2 border">
@@ -58,13 +58,13 @@
                                                 </select>
                                             </div>   
                                             <div class="mb-4 flex items-center">
-                                                <form method="post" action="/pendaftaran/pengajuans/{{ $p->id }}">
+                                                {{-- <form method="post" action="/pendaftaran/pengajuans/{{ $p->id }}">
                                                     @method('delete')
                                                     @csrf
                                                     <button type="submit" class="text-white font-bold py-2 px-4 rounded mx-auto" style="background-color: #ff7e62;">
                                                         Ajukan Ulang
                                                     </button>
-                                                </form>
+                                                </form> --}}
                                                 <!-- Additional button (Ajukan Ulang) -->
                                                 <button type="submit"  class="text-white font-bold py-2 px-4 ml-4 rounded mx-auto" style="background-color: #62ff7b;">
                                                     Setujui
@@ -181,9 +181,9 @@
     <script>
         // JavaScript untuk mengatur tampilan modal Konselor
         const container = document.getElementById('container');
-        const openModalBtn1 = document.getElementById('openModal1');
+        const openModalBtn1 = document.getELementsByClassName("btn");
         const closeModalBtn1 = document.getElementById('closeModal1');
-        const modal = document.getElementById('myModal');
+        const modal = document.querySelectorAll('.modal');
 
         openModalBtn1.addEventListener('click', () => {
             modal.classList.replace('hidden', 'flex');

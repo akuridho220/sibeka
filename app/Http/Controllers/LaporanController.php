@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laporan;
+use App\Models\Pengajuan;
 use App\Http\Requests\StoreLaporanRequest;
 use App\Http\Requests\UpdateLaporanRequest;
 
@@ -29,7 +30,7 @@ class LaporanController extends Controller
      */
     public function store(StoreLaporanRequest $request)
     {
-        //
+        
     }
 
     /**
@@ -62,5 +63,14 @@ class LaporanController extends Controller
     public function destroy(Laporan $laporan)
     {
         //
+    }
+
+    public function buatLaporan($id){
+        $pengajuan = Pengajuan::find($id);
+        return view('konselor.laporan', [
+            'title' => 'Laporan',
+            'user' => 'Konselor',
+            'pengajuan' => $pengajuan
+        ]);
     }
 }

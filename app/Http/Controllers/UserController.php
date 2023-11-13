@@ -26,24 +26,39 @@ class UserController extends Controller
     }
     public function konseli(){
         $lastPengajuan = Pengajuan::where('user_id', auth()->id())->get()->last();
-        return view('konseli.home', [
-            'lastPengajuan' => $lastPengajuan,
-            'user' => 'Konseli',
-            'title' => 'Home'
-        ]);
+        if($lastPengajuan != null){
+            return view('konseli.home', [
+                'lastPengajuan' => $lastPengajuan,
+                'user' => 'Konseli',
+                'title' => 'Home'
+            ]);
+        } else {
+            return view('konseli.home-konseli-2',[
+                'user' => 'Konseli',
+                'title' => 'Home'
+            ]);
+        }
     }
 
     public function konselor(){
-        $nama =Auth::user()->nama;
+        $nama = Auth::user()->nama;
         $pengajuan = Pengajuan::where([
             'nama_konselor' => $nama,
             'status' => 2
         ])->get()->last();
-        return view('konselor.home-konselor', [
-            'pengajuan' => $pengajuan,
-            'user' => 'Konseli',
-            'title' => 'Home'
-        ]);
+        if($pengajuan != null){
+            return view('konselor.home-konselor', [
+                'pengajuan' => $pengajuan,
+                'user' => 'Konselor',
+                'title' => 'Home'
+            ]);
+        } else {
+            return view('konselor.home-nojadwal',[
+                'user' => 'Konselor',
+                'title' => 'Home'
+            ]);
+        }
+        
     }
 
     /**

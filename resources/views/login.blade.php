@@ -24,7 +24,7 @@
         </div>
         <div class="text-center pb-3">
             <p class="text-3xl pb-2">Masuk</p>
-            <p class="font-light">Gunakan akun Sipadu</p>
+            <p class="">Gunakan akun Sipadu</p>
         </div>
         <form action="/login" method="post">
             @csrf
@@ -37,11 +37,11 @@
                 <input id="password" name="password" type="password" class="bg-gray-200 rounded-lg outline-none px-4 py-2">
             </div>
             <div class="pb-6">
-                <button class="text-white font-light w-64 py-2 px-2 rounded-lg" style="background-color: #025A88;">Login</button>
+                <button class="text-white w-64 py-2 px-2 rounded-lg font-bold" style="background-color: #025A88;">Login</button>
             </div>
-            <div>
+            <div class="pb-5">
                 <p>Belum punya akun? 
-                    <a href="/register">Daftar!</a>
+                    <a href="/register" class="" style="color: #025A88;">Daftar!</a>
                 </p>
             </div>
         </form>

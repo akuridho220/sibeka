@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="p-2 hidden md:flex">
-            <img src="img/logo.png" alt="stis" width="40px" class="w-10">
+            <img src="/img/logo.png" alt="stis" width="40px" class="w-10">
         </div>
         <div class="p-2">
             <p class="text-lg text-white font-bold">Sibeka</p>

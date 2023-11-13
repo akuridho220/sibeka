@@ -5,12 +5,12 @@
             <p class="text-xl sm:text-2xl md:text-3xl  font-bold primary-color pb-2 ">Jadwal Pertemuan</p>
                 <div class="text-sm md:text-base box-content max-w-md border-1 p-4 md:p-6 rounded-lg mb-4" style="background-color: #0997BC;">
                     <div class="grid grid-cols-2">
-                        <p class="font-semibold text-white">Hari / Tanggal</p>
-                        <p class="font-semibold text-white">{{ $pengajuan->waktu }}</p>
+                        <p class="font-semibold text-white">Tanggal</p>
+                        <p class="font-semibold text-white">{{ $pengajuan->hari }}</p>
                     </div>    
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Jam</p>
-                        <p class="font-semibold text-white">13.00 - 15.00</p>
+                        <p class="font-semibold text-white">{{ $pengajuan->waktu }}</p>
                     </div>
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Tempat</p>
@@ -21,12 +21,9 @@
                         <p class="font-semibold text-white">Mahasiswa A</p>
                     </div> 
                 </div>
-                <form action="" method="post">
-                    @csrf
-                    <button class="rounded-lg p-2 md:p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">
-                        <a href="/konselor-laporan" class="text-sm md:text-base font-semibold text-white">Isi Laporan Konseling</a>
-                    </button>
-                </form>
+                <button class="rounded-lg p-2 md:p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">
+                    <a href="/konselor-laporan/{{ $pengajuan->id }}" class="text-sm md:text-base font-semibold text-white">Isi Laporan Konseling</a>
+                </button>
                 
 
             <p class="text-xl md:text-3xl font-bold danger pt-6 pb-2">Laporan yang Belum Terisi</p>
