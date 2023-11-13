@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-auto flex flex-col relative top-16">
+    <div class="w-full overflow-x-auto flex flex-col mt-16">
         <main class="w-full flex-grow md:p-6 min-h-screen">
             <div class="container mx-auto lg:w-2/3 w-5/6" id="container">
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-center">Daftar Pengajuan Konseling</h2>
@@ -19,11 +19,11 @@
                                 <td class="py-2 px-4 border-b">{{ $loop->iteration }}</td>
                                 <td class="py-2 px-4 border-b">{{ $p->user->nama }}</td>
                                 <td class="py-2 px-4 border-b">
-                                    <button id="openModal1" class="btn text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
+                                    <button pengajuan-id="{{ $p->id }}" id="openModal1" class="btn text-white py-1 px-2 rounded" style="background-color: #FFC436;">Detail</button>
                                 </td>
-                                <div id="myModal" class="modal hidden flex-col fixed w-full z-10">
+                                <div id="open-{{ $p->id }}" class="modal hidden flex-col fixed w-full z-10">
                                     <div class="modal-content bg-white p-4 sm:p-6 rounded shadow-lg w-5/6 md:w-2/3 lg:w-1/2 border">
-                                        <span id="closeModal1" class="modal-close cursor-pointer md:p-4 text-xl md:text-2xl">&times;</span>
+                                        <span pengajuan-id="{{ $p->id }}" id="closeModal1" class="btn-close cursor-pointer md:p-4 text-xl md:text-2xl">&times;</span>
                                         <h2 class="font-bold md:text-lg mb-4 text-center">Penjadwalan</h2>
                                         <!-- Isi form modal -->
                                         <form action="/pendaftaran/pengajuans/{{ $p->id }}" method="post" class="flex flex-col mt-2 sm:mt-4">
@@ -181,19 +181,36 @@
     <script>
         // JavaScript untuk mengatur tampilan modal Konselor
         const container = document.getElementById('container');
-        const openModalBtn1 = document.getELementsByClassName("btn");
-        const closeModalBtn1 = document.getElementById('closeModal1');
+        const openModalBtn = document.querySelectorAll('.btn');
+        const closeModalBtn = document.querySelectorAll('.btn-close');
         const modal = document.querySelectorAll('.modal');
 
-        openModalBtn1.addEventListener('click', () => {
-            modal.classList.replace('hidden', 'flex');
-            //container.classList.add('blur-[2px]');
+        openModalBtn.forEach(function(button){
+            button.addEventListener('click', function() {
+                let pengajuanId = this.getAttribute('pengajuan-id');
+                let y = document.getElementById('open-'+pengajuanId);
+                y.classList.replace('hidden', 'flex');
+            })
         });
 
-        closeModalBtn1.addEventListener('click', () => {
-            modal.classList.replace('flex','hidden');
-            //container.classList.remove('blur-[2px]');
+        closeModalBtn.forEach(function(button){
+            button.addEventListener('click', function() {
+                let pengajuanId = this.getAttribute('pengajuan-id');
+                let y = document.getElementById('open-'+pengajuanId);
+                y.classList.replace('flex', 'hidden');
+            })
         });
+
+
+        // openModalBtn1.addEventListener('click', () => {
+        //     modal.classList.replace('hidden', 'flex');
+        //     //container.classList.add('blur-[2px]');
+        // });
+
+        // closeModalBtn1.addEventListener('click', () => {
+        //     modal.classList.replace('flex','hidden');
+        //     //container.classList.remove('blur-[2px]');
+        // });
 
         // JavaScript untuk mengatur tampilan modal Konseli
         const openModalBtn2 = document.getElementById('openModal2');

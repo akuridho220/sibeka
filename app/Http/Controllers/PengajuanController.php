@@ -54,7 +54,7 @@ class PengajuanController extends Controller
             'nama_konseli' => ['required'],
             'nim_konseli' => ['required'],
             'jk_konseli' => ['required'],
-            'tingkat_konseli' => ['required'],
+            'kelas_konseli' => ['required'],
             'nomor_hp' => ['required'],
             'hari_1' => ['required'],
             'hari_2'=> ['required'],
@@ -63,6 +63,15 @@ class PengajuanController extends Controller
             'jk_konselor'=> ['required',''],
             'opsi_ditemani'=> ['required']
         ]);
+        $validatedData['tingkat_konseli'] = substr($validatedData['kelas_konseli'], 0, 1);
+        $prodi = substr($validatedData['nim_konseli'],0,2);
+        if($prodi == '11'){
+            $validatedData['prodi_konseli'] = 'D3 Statistika';
+        } else if($prodi == '21'){
+            $validatedData['prodi_konseli'] = 'D4 Statistika';
+        } else if($prodi == '22'){
+            $validatedData['prodi_konseli'] = 'D4 Komputasi Statistik';
+        }
         $validatedData['user_id'] = Auth::id();
         Pengajuan::create($validatedData);
         return redirect('/konseli');

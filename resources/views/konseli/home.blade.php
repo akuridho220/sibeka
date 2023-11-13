@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col relative top-16">
+    <div class="w-full overflow-x-hidden flex flex-col mt-16">
         <main class="w-full flex-grow px-12 py-8">
             <p class="text-3xl font-bold secondary-color pb-2">Jadwal Pertemuan</p>
             <div class="box-content max-w-sm border-1 p-6 rounded-lg {{ $lastPengajuan->status == 2 ? '' : 'hidden' }}" style="background-color: #0997BC;">

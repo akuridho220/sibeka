@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col relative top-16">
-        <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
+    <div class="w-full overflow-x-hidden flex flex-col mt-16">
+        <main class="w-full flex flex-grow justify-center p-2 md:p-6">
             <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
                 <div class="flex flex-row items-center justify-between">
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Pendaftaran Konseling</p>
@@ -9,14 +9,18 @@
                 <form class="w-full lg:w-4/5 px-4 md:px-10" novalidate action="/pendaftaran" method="post" onsubmit="return validasiForm()">
                     @csrf
                     <div class="p-2">
-                        <label class="block mb-1 font-bold">Nama Konseli</label>
+                        <label class="block mb-1 font-bold">Nama</label>
                         <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ auth()->user()->nama }}" readonly>
                     </div>
                     <div class="p-2">
-                        <label for="" class="block mb-1 font-bold">NIM Konseli</label>
+                        <label for="" class="block mb-1 font-bold">NIM</label>
                         <input type="text" id="nim" name="nim_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ auth()->user()->nim }}" readonly>
                     </div>
                     <div class="p-2">
+                        <label for="" class="block mb-1 font-bold">Kelas</label>
+                        <input type="text" id="kelas" name="kelas_konseli" class="w-full bg-gray-300 h-10 p-2">
+                    </div>
+                    {{-- <div class="p-2">
                         <label class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Tingkat</label>
                         <select type="text" id="tingkat" name="tingkat_konseli" class="bg-gray-200 h-10 p-2 w-full">
                             <option value=""disabled selected>Pilih tingkat</option>
@@ -26,7 +30,7 @@
                             <option value="4">Tingkat IV</option>
                         </select>
                         <span class="text-xs text-red-500" id="vtingkat"></span>
-                    </div>
+                    </div> --}}
                     <input type="hidden" name="jk_konseli" value="{{ auth()->user()->jk }}">
                     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     <div class="p-2">

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col">
+    <div class="w-full overflow-x-hidden flex flex-col mt-16">
         <main class="w-full flex-grow p-2 md:p-6 min-h-screen">
             <div class="w-full md:w-5/6 flex flex-col items-center mx-auto">
                 <h1 class="text-3xl text-black pb-6">Dashboard</h1>

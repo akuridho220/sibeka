@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-    <div class="w-full overflow-x-hidden flex flex-col relative top-16">
+    <div class="w-full overflow-x-hidden flex flex-col mt-16">
         <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
             <!-- <div class="flex flex-col justify-center items-center border-solid border-2 border-black"> -->
             <div class="flex flex-col items-center bg-white lg:w-2/3 w-5/6 rounded-lg border drop-shadow-lg overflow-auto">
