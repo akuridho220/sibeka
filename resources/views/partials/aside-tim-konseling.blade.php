@@ -21,7 +21,7 @@
             {{-- <i class="fas fa-home mr-3"></i> --}}
             Beranda
         </a>
-        <a href="/tim-pengajuan" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
+        <a href="{{ route('pengajuans.index') }}" class="flex items-center py-4 pl-6 {{ $title === "Pendaftaran" ? 'active-nav-link' : '' }} nav-item">
             <div class="grow-0">
                 <i data-feather="file-text" class="mr-4"></i>
             </div>

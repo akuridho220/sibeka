@@ -14,11 +14,11 @@
                     </div>
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Tempat</p>
-                        <p class="font-semibold text-white">Ruang D</p>
+                        <p class="font-semibold text-white">{{ $pengajuan->ruang }}</p>
                     </div>
                     <div class="grid grid-cols-2">
                         <p class="font-semibold text-white">Nama Konseli</p>
-                        <p class="font-semibold text-white">Mahasiswa A</p>
+                        <p class="font-semibold text-white">{{ $pengajuan->konseli->nama }}</p>
                     </div> 
                 </div>
                 <button class="rounded-lg p-2 md:p-3" style="background-color: #159600; display: flex; justify-content: center; align-items: center;">

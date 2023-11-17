@@ -18,60 +18,29 @@
                     <div class="w-full">
                         <div class="w-full mx-auto md:p-8 p-4">
                             <div class="shadow-md">
+                            @foreach ($laporans as $l)
                                 <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">24 November 2023, Pukul 13.00 - 15.00 WIB</label>
+                                    <input class="absolute opacity-0" id="tab-single-{{ $loop->iteration }}" type="radio" name="tabs2">
+                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-{{ $loop->iteration }}">
+                                        {{ $l->hari }}, Pukul {{ $l->waktu }}
+                                    </label>
+                                    <!-- <label class="block pb-5 px-5 leading-normal cursor-pointer font-bold" for="tab-single-one">{{ $l->hari }}, Pukul {{ $l->waktu }}</label> -->
                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Ruang</p>
-                                            <p class="flex rounded-full danger px-2 py-1">Ruang Konseling 1</p>
+                                    <div class="flex flex-row p-2 items-center">
+                                            <p class="w-1/4">Ruang</p>
+                                            <p class="block rounded-full bg-danger text-white px-4 py-1">{{ $l->pengajuan->ruang }}</p>
                                         </div>
                                         <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Konselor</p>
-                                            <p class="flex rounded-full  accept px-2 py-1">Firdaus, MBA</p>
+                                            <p class="w-1/4">Konselor</p>
+                                            <p class="block rounded-full bg-accept text-white px-4 py-1">{{ $l->nama_konselor }}</p>
                                         </div>
                                         <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Topik</p>
-                                            <p class="flex rounded-full  warning px-2 py-1">Akademik</p>
+                                            <p class="w-1/4">Topik</p>
+                                            <p class="block rounded-full bg-warning text-white px-4 py-1">{{ $l->topik }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-two" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-two">24 Oktober 2023, Pukul 13.00 - 15.00 WIB</label>
-                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Ruang</p>
-                                            <p class="flex rounded-full danger px-2 py-1">Ruang Konseling 1</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Konselor</p>
-                                            <p class="flex rounded-full  accept px-2 py-1">Firdaus, MBA</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Topik</p>
-                                            <p class="flex rounded-full  warning px-2 py-1">Akademik</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-three" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-three">24 September 2023, Pukul 13.00 - 15.00 WIB</label>
-                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Ruang</p>
-                                            <p class="flex rounded-full danger px-2 py-1">Ruang Konseling 1</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Konselor</p>
-                                            <p class="flex rounded-full  accept px-2 py-1">Firdaus, MBA</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="flex w-1/3">Topik</p>
-                                            <p class="flex rounded-full  warning px-2 py-1">Akademik</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            @endforeach
                             </div>
                         </div>
                     </div>

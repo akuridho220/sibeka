@@ -7,11 +7,11 @@
                 <div>
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Laporan Konseling</p>
                 </div>
-                <form class="w-full lg:w-4/5 px-4 md:px-10" id="formLaporan" action="/pendaftaran/pengajuans" method="post" onsubmit="return validasiForm()">
+                <form class="w-full lg:w-4/5 px-4 md:px-10" id="formLaporan" action="/konselor-laporan/{{ $pengajuan->id }}" method="post" onsubmit="return validasiForm()">
                     @csrf
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konselor</label>
-                        <input type="text" id="nama_konselor" name="nama_konselor" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->nama_konselor }}" readonly>
+                        <input type="text" id="nama_konselor" name="nama_konselor" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->konselor->nama }}" readonly>
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Waktu Konseling</label>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama Konseli</label>
-                        <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->nama_konseli }}" readonly>
+                        <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->konseli->nama }}" readonly>
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">NIM Konseli</label>

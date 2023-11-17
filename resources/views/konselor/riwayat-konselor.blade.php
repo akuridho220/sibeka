@@ -4,7 +4,7 @@
         <main class="w-full flex flex-grow justify-center p-2 md:p-6 min-h-screen">
             <div class="flex flex-col items-center bg-white lg:w-2/3 w-full rounded-lg border drop-shadow-lg overflow-auto">
                 <div class="flex flex-col justify-center py-4 px-2">
-                    <h1 class="font-bold ">Riwayat Konseling</h1>
+                    <h1 class="font-bold text-lg md:text-xl">Riwayat Konseling</h1>
                 </div>
                 <div class="flex flex-col w-full items-center">
                 <div class="flex flex-col py-2 mx-auto justify-center">
@@ -31,60 +31,34 @@
                     <div class="w-full">
                         <div class="w-full mx-auto md:p-8 p-4">
                             <div class="shadow-md">
+                                @foreach ($laporans as $l)
                                 <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-one" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-one">24 November 2023, Pukul 13.00 - 15.00 WIB</label>
+                                    <input class="absolute opacity-0" id="tab-single-{{ $loop->iteration }}" type="radio" name="tabs2">
+                                    <label class="block p-5 leading-normal cursor-pointer text-sm" for="tab-single-{{ $loop->iteration }}">
+                                        <span class="font-bold text-base">{{ $l->nama_konseli }}</span> <br>
+                                        {{ $l->hari }}, Pukul {{ $l->waktu }}
+                                    </label>
+                                    <!-- <label class="block pb-5 px-5 leading-normal cursor-pointer font-bold" for="tab-single-one">{{ $l->hari }}, Pukul {{ $l->waktu }}</label> -->
                                     <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
                                     <div class="flex flex-row p-2 items-center">
                                             <p class="w-1/4">Ruang</p>
-                                            <p class="block rounded-full bg-danger text-white px-4 py-1">Ruang Konseling 1</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Konseli</p>
-                                            <p class="block rounded-full bg-accept text-white px-4 py-1">Konseli Z</p>
+                                            <p class="block rounded-full bg-danger text-white px-4 py-1">{{ $l->pengajuan->ruang }}</p>
                                         </div>
                                         <div class="flex flex-row p-2 items-center">
                                             <p class="w-1/4">Topik</p>
-                                            <p class="block rounded-full bg-warning text-white px-4 py-1">Akademik</p>
+                                            <p class="block rounded-full bg-warning text-white px-4 py-1">{{ $l->topik }}</p>
+                                        </div>
+                                        <div class="flex flex-row p-2 items-center">
+                                            <p class="w-1/4">Hasil</p>
+                                            <p class="block rounded bg-gray-500 text-white px-4 py-1">{{ $l->hasil }}</p>
+                                        </div>
+                                        <div class="flex flex-row p-2 items-center">
+                                            <p class="w-1/4">Solusi</p>
+                                            <p class="block rounded bg-gray-500 text-white px-4 py-1">{{ $l->solusi }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-two" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-two">24 Oktober 2023, Pukul 13.00 - 15.00 WIB</label>
-                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
-                                    <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Ruang</p>
-                                            <p class="block rounded-full bg-danger text-white px-4 py-1">Ruang Konseling 1</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Konseli</p>
-                                            <p class="block rounded-full bg-accept text-white px-4 py-1">Konseli X</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Topik</p>
-                                            <p class="block rounded-full bg-warning text-white px-4 py-1">Akademik</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab w-full overflow-hidden border-t text-sm md:text-base">
-                                    <input class="absolute opacity-0" id="tab-single-three" type="radio" name="tabs2">
-                                    <label class="block p-5 leading-normal cursor-pointer" for="tab-single-three">24 September 2023, Pukul 13.00 - 15.00 WIB</label>
-                                    <div class="tab-content overflow-hidden border-l-2 bg-gray-100 leading-normal px-2 flex flex-col">
-                                    <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Ruang</p>
-                                            <p class="block rounded-full bg-danger text-white px-4 py-1">Ruang Konseling 1</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Konseli</p>
-                                            <p class="block rounded-full bg-accept text-white px-4 py-1">Konseli Y</p>
-                                        </div>
-                                        <div class="flex flex-row p-2 items-center">
-                                            <p class="w-1/4">Topik</p>
-                                            <p class="block rounded-full bg-warning text-white px-4 py-1">Akademik</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

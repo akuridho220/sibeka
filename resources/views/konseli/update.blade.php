@@ -6,8 +6,9 @@
                 <div class="flex flex-row items-center justify-between">
                     <p class="font-semibold text-center text-lg w-full mb-1 p-4 md:text-xl">Formulir Pendaftaran Konseling</p>
                 </div>
-                <form class="w-full lg:w-4/5 px-4 md:px-10" novalidate action="{{ route('pengajuans.store') }}" method="post" onsubmit="return validasiForm()">
+                <form class="w-full lg:w-4/5 px-4 md:px-10" novalidate action="{{ route('pengajuans.update', $pengajuan->id) }}" method="post" onsubmit="return validasiForm()">
                     @csrf
+                    @method('PUT')
                     <div class="p-2">
                         <label class="block mb-1 font-bold">Nama</label>
                         <input type="text" id="nama_konseli" name="nama_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ auth()->user()->nama }}" readonly>
@@ -18,13 +19,13 @@
                     </div>
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold">Kelas</label>
-                        <input type="text" id="kelas" name="kelas_konseli" class="w-full bg-gray-300 h-10 p-2">
+                        <input type="text" id="kelas" name="kelas_konseli" class="w-full bg-gray-300 h-10 p-2" value="{{ $pengajuan->kelas_konseli }}">
                     </div>
                     <input type="hidden" name="jk_konseli" value="{{ auth()->user()->jk }}">
                     <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     <div class="p-2">
                         <label for="" class="block mb-1 font-bold after:content-['*'] after:ml-0.5 after:text-red-500">Nomor HP</label>
-                        <input type="number" id="nomorhp" name="nomor_hp" class="w-full bg-gray-200 h-10 p-2">
+                        <input type="number" id="nomorhp" name="nomor_hp" class="w-full bg-gray-200 h-10 p-2" value="{{ $pengajuan->nomor_hp }}">
                         <span class="text-xs text-red-500" id="vnomorhp"></span>
                     </div>                    
                     <div class="p-2">
@@ -92,10 +93,6 @@
         document.getElementById("firstDay").setAttribute("min", formattedDate);
         document.getElementById("secondDay").setAttribute("min", formattedDate);
 
-
-
-        
-
         function updateTimeOptions(dateInputId, timeSelectId, validateId) {
             const dateInput = document.getElementById(dateInputId);
             const timeSelect = document.getElementById(timeSelectId);
@@ -103,7 +100,6 @@
 
             const selectedDate = new Date(dateInput.value);
             const selectedDayOfWeek = selectedDate.getDay(); 
-
 
             //jika hari yang diinputkan tidak sah
             if (selectedDayOfWeek === 5 || selectedDayOfWeek === 6 || selectedDayOfWeek === 0) {
@@ -133,7 +129,6 @@
                 <option value="13:00-14:00">13:00-14:00</option>
                 <option value="14:00-15:00">14:00-15:00</option>
             `;
-
             // Enable the time select and update options based on the selected day
             if (selectedDayOfWeek === 2) {
                 timeSelect.innerHTML = TuesdayOptions;
@@ -146,7 +141,6 @@
                 timeSelect.classList.remove("border-red-700");
                 validate.textContent = "";
             } 
-
             // Enable or disable the select based on the selected day
             if (selectedDayOfWeek === 1 || selectedDayOfWeek === 2 || selectedDayOfWeek === 3 || selectedDayOfWeek === 4) {
                 timeSelect.removeAttribute("disabled");
@@ -157,7 +151,6 @@
                 timeSelect.setAttribute("disabled", "disabled");
             }
         }
-
         function validasiForm() {
             let tingkat = document.getElementById("tingkat");
             let nomorhp = document.getElementById("nomorhp");
@@ -166,7 +159,6 @@
             let firstDay = document.getElementById("firstDay");
             let time1 = document.getElementById("time1");
             let rtn = true;
-
             var inputan = [
                 { elem: tingkat, id: "vtingkat" },
                 { elem: nomorhp, id: "vnomorhp" },
@@ -175,7 +167,6 @@
                 { elem: firstDay, id: "vfirstDay"},
                 { elem: time1, id: "vtime1"}
             ];
-
             function validasi(input) {
                 if (input.elem.value == "") {
                 input.elem.classList.add("border");
@@ -188,11 +179,8 @@
                 document.getElementById(input.id).textContent = "";
                 }
             }
-
             inputan.forEach(validasi);
-
             return rtn;
         }
-
     </script>
 @endsection

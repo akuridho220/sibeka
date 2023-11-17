@@ -40,13 +40,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function pengajuans(): HasMany
+    public function pengajuansKonseli(): HasMany
     {
-        return $this->hasMany(Pengajuan::class);
+        return $this->hasMany(Pengajuan::class, 'konseli_id', 'id');
+    }
+
+    public function pengajuansKonselor(): HasMany
+    {
+        return $this->hasMany(Pengajuan::class, 'konselor_id', 'id');
     }
 
     public function laporans(): HasMany
     {
         return $this->hasMany(Laporan::class);
     }
+
+
 }

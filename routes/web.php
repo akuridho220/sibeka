@@ -38,7 +38,8 @@ Route::get('/konseli-pendaftaran', [PengajuanController::class, 'create'])->midd
 Route::post('/pendaftaran', [PengajuanController::class, 'buatPengajuan'])->middleware('auth');
 //Route::resource('/pendaftaran/posts', [PengajuanController::class, 'approve'])->middleware('auth');
 Route::resource('/pendaftaran/pengajuans', PengajuanController::class)->middleware('auth');
-
+Route::patch('/resubmit/{id}', [PengajuanController::class, 'resubmit'])->middleware('auth');
+Route::patch('/approve/{id}', [PengajuanController::class, 'approve'])->middleware('auth');
 
 // Route Laporan
 Route::resource('/pendaftaran/laporans', LaporanController::class)->middleware('auth');
@@ -47,46 +48,15 @@ Route::resource('/pendaftaran/laporans', LaporanController::class)->middleware('
 
 // Route Konseli
 Route::get('/konseli', [UserController::class, 'konseli'])->middleware('auth');
-// Route::get('/konseli', function () {
-//     return view('konseli/home-konseli-1', [
-//         "title" => "Home",
-//         "user" => "Konseli"
-//     ]);
-// });
-
-
-Route::get('/konseli-riwayat', function () {
-    return view('konseli/riwayat-konseli', [
-        "title" => "Riwayat",
-        "user" => "Konseli"
-    ]);
-});
+Route::get('/konseli-riwayat', [LaporanController::class,'showLaporanKonseli'])->middleware('auth');
 
 // Route for Konselor
 Route::get("/konselor", [UserController::class,"konselor"])->middleware('auth');
-// Route::get('/konselor', function () {
-//     return view('konselor/home-konselor', [
-//         "title" => "Home",
-//         "user" => "Konselor"
-//     ]);
-// });
-
-Route::get('/konselor-laporan/{id}', [LaporanController::class, 'buatLaporan'])->middleware('auth');
+Route::get('/konselor-laporan/{id}', [LaporanController::class, 'index'])->middleware('auth');
+Route::post('/konselor-laporan/{id}', [LaporanController::class, 'createLaporan'])->middleware('auth');
 
 
-Route::get('/konselor-laporan', function () {
-    return view('konselor/laporan', [
-        "title" => "Laporan",
-        "user" => "Konselor"
-    ]);
-});
-
-Route::get('/konselor-riwayat', function () {
-    return view('konselor/riwayat-konselor', [
-        "title" => "Riwayat",
-        "user" => "Konselor"
-    ]);
-});
+Route::get('/konselor-riwayat', [LaporanController::class, 'showLaporanKonselor'])->middleware('auth');
 
 // Route for Team
 Route::get('/tim', [UserController::class, 'home'])->name('tim-konseling.home-tim-konseling');

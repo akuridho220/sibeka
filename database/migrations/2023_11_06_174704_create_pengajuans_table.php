@@ -31,7 +31,8 @@ return new class extends Migration
             $table->string('ruang')->nullable();
             $table->string('opsi_ditemani');
             $table->integer('status')->default(1);
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('konseli_id')->references('id')->on('users');
+            $table->foreignId('konselor_id')->nullable()->references('id')->on('users');
             $table->timestamps();
         });
     }

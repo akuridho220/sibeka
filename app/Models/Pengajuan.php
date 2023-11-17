@@ -14,15 +14,18 @@ class Pengajuan extends Model
     protected $guarded = ['id'];
     //protected $with = ['user_id'];
 
-    public function user(): BelongsTo
+    public function konseli(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'konseli_id', 'id');
     }
 
-    // public function status() : Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn (string $value) => ucfirst($value),
-    //     );
-    // }
+    public function konselor(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'konselor_id', 'id');
+    }
+
+    public function laporan()
+    {
+        return $this->hasOne(Laporan::class);
+    }
 }

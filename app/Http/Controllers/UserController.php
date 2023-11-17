@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
     }
     public function konseli(){
-        $lastPengajuan = Pengajuan::where('user_id', auth()->id())->get()->last();
+        $lastPengajuan = Pengajuan::where('konseli_id', auth()->id())->get()->last();
         if($lastPengajuan != null){
             return view('konseli.home', [
                 'lastPengajuan' => $lastPengajuan,
@@ -41,9 +41,9 @@ class UserController extends Controller
     }
 
     public function konselor(){
-        $nama = Auth::user()->nama;
+        $id = Auth::user()->id;
         $pengajuan = Pengajuan::where([
-            'nama_konselor' => $nama,
+            'konselor_id' => $id,
             'status' => 2
         ])->get()->last();
         if($pengajuan != null){
@@ -58,7 +58,6 @@ class UserController extends Controller
                 'title' => 'Home'
             ]);
         }
-        
     }
 
     /**

@@ -18,19 +18,22 @@ class PengajuanController extends Controller
     {
         //$pengajuan = Pengajuan::where('status', 1)->get();
         $pengajuan = Pengajuan::all()->sortBy("status");
-        $konselors_l = User::where([
+        $konselor_l = User::where([
             'role' => 2,
             'jk' => 'Laki-laki'
-        ]);
-
-        $konselors_p = User::where([
-            'role'=> 2,
+        ])->get();
+        $konselor_p = User::where([
+            'role' => 2,
             'jk' => 'Perempuan'
-        ]);
+        ])->get();
+        $konselor = User::where('role', 2)->get();
         return view('tim-konseling.persetujuan',[
             'pengajuans' =>  $pengajuan,
             'title' => 'Pendaftaran',
-            'user' => 'Tim Konseling'
+            'user' => 'Tim Konseling',
+            'konselors' => $konselor,
+            'konselors_l' => $konselor_l,
+            'konselors_p'=> $konselor_p 
         ]);
     }
 
@@ -48,7 +51,7 @@ class PengajuanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function buatPengajuan(StorePengajuanRequest $request)
+    public function store(StorePengajuanRequest $request)
     {        
         $validatedData = $request->validate([
             'nama_konseli' => ['required'],
@@ -72,22 +75,30 @@ class PengajuanController extends Controller
         } else if($prodi == '22'){
             $validatedData['prodi_konseli'] = 'D4 Komputasi Statistik';
         }
-        $validatedData['user_id'] = Auth::id();
+        $validatedData['konseli_id'] = Auth::id();
         Pengajuan::create($validatedData);
         return redirect('/konseli');
     }
 
-    // public function approve(Request $request, Pengajuan $pengajuan){
-    //     $validatedData = $request->validate([
-    //         'nama_konseli' => ['required'],
-    //         'nama_konselor' => ['required'],
-    //         'waktu' => ['required'],
-    //         'ruang' => ['required']
-    //     ]);
-    //     $validatedData['status'] = 2;
-    //     Pengajuan::where('id', $pengajuan->id)->update($validatedData);
-    //     return redirect('/tim');
-    // }
+    public function approve(Request $request, $id){
+        $p = Pengajuan::find($id);
+        $validatedData = $request->validate([
+            'nama_konseli' => ['required'],
+            'konselor_id' => ['required'],
+            'hari' => ['required'],
+            'ruang' => ['required']
+            
+        ]);
+        if($validatedData['hari'] == $p['hari_1']){
+            $validatedData['waktu'] = $p['waktu_1'];
+        } else {
+            $validatedData['waktu'] = $p['waktu_2'];
+        }
+        
+        $validatedData['status'] = 2;
+        Pengajuan::where('id',$id)->update($validatedData);
+        return redirect('/tim');
+    }
 
     /**
      * Display the specified resource.
@@ -102,7 +113,11 @@ class PengajuanController extends Controller
      */
     public function edit(Pengajuan $pengajuan)
     {
-        //
+        return view('konseli.update',[
+            'title' => 'Pendaftaran',
+            'user' => 'Konseli',
+            'pengajuan' => $pengajuan
+        ]);
     }
 
     /**
@@ -112,14 +127,28 @@ class PengajuanController extends Controller
     {
         $validatedData = $request->validate([
             'nama_konseli' => ['required'],
-            'nama_konselor' => ['required'],
-            'hari' => ['required'],
-            'ruang' => ['required']
+            'nim_konseli' => ['required'],
+            'jk_konseli' => ['required'],
+            'kelas_konseli' => ['required'],
+            'nomor_hp' => ['required'],
+            'hari_1' => ['required'],
+            'waktu_1'=> ['required',''],
+            'jk_konselor'=> ['required',''],
+            'opsi_ditemani'=> ['required']
         ]);
-        $validatedData['status'] = 2;
+        $validatedData['tingkat_konseli'] = substr($validatedData['kelas_konseli'], 0, 1);
+        $prodi = substr($validatedData['nim_konseli'],0,2);
+        if($prodi == '11'){
+            $validatedData['prodi_konseli'] = 'D3 Statistika';
+        } else if($prodi == '21'){
+            $validatedData['prodi_konseli'] = 'D4 Statistika';
+        } else if($prodi == '22'){
+            $validatedData['prodi_konseli'] = 'D4 Komputasi Statistik';
+        }
         Pengajuan::where('id',$pengajuan->id)->update($validatedData);
-        return redirect('/tim');
+        return redirect('/konseli');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -128,5 +157,11 @@ class PengajuanController extends Controller
     {
         Pengajuan::destroy($pengajuan->id);
         return redirect('/tim-pengajuan');
+    }
+
+    public function resubmit($id){
+        $data['status'] = 4;
+        Pengajuan::where('id',$id)->update($data);
+        return redirect('/tim');
     }
 }
